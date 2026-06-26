@@ -41,6 +41,7 @@ const navItems: NavItem[] = [
     label: "Convocatorias", icon: CalendarCheck, roles: ["SUPER_ADMIN", "ADMIN", "SECRETARIA"],
     children: [
       { label: "Gestionar Convocatorias", href: "/dashboard/fechas-limite" },
+      { label: "Grupos de documentos", href: "/dashboard/admin/grupos-documentos" },
       { label: "Notif. Masivas", href: "/dashboard/notificaciones-masivas" },
     ],
   },

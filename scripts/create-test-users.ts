@@ -51,19 +51,14 @@ const testUsers = [
 async function main() {
   console.log('Creating test users...')
 
-  // Create a test career
-  const carreraResult = await db
-    .insert(carreras)
-    .values({
-      nombre: 'Ingeniería Agronómica',
-      siglas: 'IAgr',
-      facultad: 'Ciencias Agrícolas',
-      coordinador: 'Dr. Carlos Mendoza',
-      activa: true,
-    })
-    .returning({ id: carreras.id })
+  // Create a test career reference (Ingeniería Agropecuaria = id 2 after seed)
+  const [carreraAgropec] = await db
+    .select({ id: carreras.id })
+    .from(carreras)
+    .where(eq(carreras.siglas, 'IAgropec'))
+    .limit(1)
 
-  const carreraId = carreraResult[0]?.id || 1
+  const carreraId = carreraAgropec?.id ?? 2
 
   for (const testUser of testUsers) {
     try {

@@ -15,6 +15,15 @@ interface Notificacion {
   createdAt: string
 }
 
+const tipoMap: Record<string, string> = {
+  advertencia: 'warning',
+  urgente: 'error',
+  info: 'info',
+  success: 'success',
+  warning: 'warning',
+  error: 'error',
+}
+
 const tipoIcon: Record<string, React.ComponentType<{ className?: string }>> = {
   info: Info,
   success: CheckCircle,
@@ -135,8 +144,9 @@ export default function NotificacionesPage() {
           ) : (
             <div className="space-y-2">
               {notifs.map((n) => {
-                const Icon = tipoIcon[n.tipo] ?? Info
-                const color = tipoColor[n.tipo] ?? "#3b82f6"
+                const tipo = tipoMap[n.tipo] ?? n.tipo
+                const Icon = tipoIcon[tipo] ?? Info
+                const color = tipoColor[tipo] ?? "#3b82f6"
                 return (
                   <div
                     key={n.id}

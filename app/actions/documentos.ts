@@ -5,6 +5,7 @@ import { archivos, convocatorias, documentosEstudiante, user } from '@/lib/db/sc
 import { eq, desc } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import { getCurrentPerfil, getUserId } from './auth'
+import { crearNotificacion } from './notificaciones'
 
 export type ConvocatoriaInput = {
   titulo: string
@@ -87,6 +88,8 @@ export async function registrarArchivo(data: {
   tipo: string
   archivoUrl: string
   convocatoriaId?: number
+  grupoId?: number
+  requisitoId?: number
 }) {
   const userId = await getUserId()
   const [row] = await db.insert(archivos).values({
@@ -95,6 +98,8 @@ export async function registrarArchivo(data: {
     tipo: data.tipo,
     archivoUrl: data.archivoUrl,
     convocatoriaId: data.convocatoriaId ?? null,
+    grupoId: data.grupoId ?? null,
+    requisitoId: data.requisitoId ?? null,
     estado: 'pendiente',
   }).returning()
 
@@ -127,6 +132,22 @@ export async function revisarArchivo(id: number, estado: 'aprobado' | 'rechazado
     revisadoPor: userId,
     observacion: observacion ?? null,
   }).where(eq(archivos.id, id)).returning()
+
+  if (row) {
+    const titulo = estado === 'aprobado' ? 'Documento aprobado' : 'Documento rechazado'
+    const mensaje =
+      estado === 'aprobado'
+        ? `Tu documento "${row.nombre}" fue aprobado.`
+        : `Tu documento "${row.nombre}" fue rechazado. ${observacion ? `Observación: ${observacion}` : ''}`
+
+    await crearNotificacion({
+      destinatarioId: row.userId,
+      titulo,
+      mensaje,
+      tipo: estado === 'aprobado' ? 'success' : 'error',
+    })
+  }
+
   revalidatePath('/dashboard/revision/documentos')
   return row
 }

@@ -4,7 +4,14 @@ import { db } from "@/lib/db"
 import { carreras } from "@/lib/db/schema"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { User, Mail, Building2, Shield } from "lucide-react"
+import { User, Mail, Building2, Shield, CreditCard, Code2 } from "lucide-react"
+
+const DESARROLLADORES = [
+  "Bosada Bosada Jesús Andrés",
+  "Loor Vera Jordy Lenin",
+  "Parrales Pico Douglas Andrés",
+  "Santos Toala José Sebastián",
+]
 
 const rolLabel: Record<string, string> = {
   SUPER_ADMIN: "Super Administrador",
@@ -67,6 +74,7 @@ export default async function PerfilPage() {
         <CardContent className="space-y-4">
           {[
             { label: "Nombre completo", value: user.name, icon: User },
+            { label: "Cédula", value: perfil?.cedula ?? "No registrada", icon: CreditCard },
             { label: "Correo electronico", value: user.email, icon: Mail },
             { label: "Rol en el sistema", value: rolLabel[rol] ?? rol, icon: Shield },
             { label: "Carrera", value: carreraNombre ?? "No asignada", icon: Building2 },
@@ -110,6 +118,25 @@ export default async function PerfilPage() {
               <span className="font-mono text-xs text-[#64748b]">{user.id.slice(0, 16)}…</span>
             </div>
           </div>
+        </CardContent>
+      </Card>
+
+      <Card className="border-[#e2e8f0]">
+        <CardHeader>
+          <CardTitle className="text-[#0f172a] flex items-center gap-2">
+            <Code2 className="w-5 h-5 text-[#1a6b3c]" />
+            Sistema desarrollado por
+          </CardTitle>
+          <CardDescription>Equipo de desarrollo SISPAA — ULEAM</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ul className="space-y-2">
+            {DESARROLLADORES.map((dev) => (
+              <li key={dev} className="text-sm font-medium text-[#0f172a] py-2 px-4 bg-[#f8fafc] rounded-lg border border-[#f1f5f9]">
+                {dev}
+              </li>
+            ))}
+          </ul>
         </CardContent>
       </Card>
     </div>

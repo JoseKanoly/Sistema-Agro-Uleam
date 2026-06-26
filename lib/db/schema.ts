@@ -58,6 +58,7 @@ export const perfiles = pgTable('perfiles', {
   id: serial('id').primaryKey(),
   userId: text('userId').notNull(),
   rol: text('rol').notNull().default('ESTUDIANTE'),
+  cedula: text('cedula'),
   carreraId: integer('carreraId'),
   esTutorTitulacion: boolean('esTutorTitulacion').notNull().default(false),
   esInvestigador: boolean('esInvestigador').notNull().default(false),
@@ -81,6 +82,10 @@ export const materias = pgTable('materias', {
   codigo: text('codigo').notNull(),
   creditos: integer('creditos').notNull().default(3),
   nivel: integer('nivel').notNull().default(1),
+  acd: integer('acd').notNull().default(0),
+  ape: integer('ape').notNull().default(0),
+  aa: integer('aa').notNull().default(0),
+  horas: integer('horas').notNull().default(0),
   docente: text('docente'),
   activa: boolean('activa').notNull().default(true),
   createdAt: timestamp('createdAt').notNull().defaultNow(),
@@ -231,6 +236,23 @@ export const reactivos = pgTable('reactivos', {
   createdAt: timestamp('createdAt').notNull().defaultNow(),
 })
 
+export const gruposDocumentos = pgTable('grupos_documentos', {
+  id: serial('id').primaryKey(),
+  nombre: text('nombre').notNull(),
+  descripcion: text('descripcion'),
+  activo: boolean('activo').notNull().default(true),
+  createdAt: timestamp('createdAt').notNull().defaultNow(),
+})
+
+export const requisitosGrupo = pgTable('requisitos_grupo', {
+  id: serial('id').primaryKey(),
+  grupoId: integer('grupoId').notNull(),
+  nombre: text('nombre').notNull(),
+  orden: integer('orden').notNull().default(0),
+  activo: boolean('activo').notNull().default(true),
+  createdAt: timestamp('createdAt').notNull().defaultNow(),
+})
+
 export const convocatorias = pgTable('convocatorias', {
   id: serial('id').primaryKey(),
   titulo: text('titulo').notNull(),
@@ -248,6 +270,8 @@ export const archivos = pgTable('archivos', {
   id: serial('id').primaryKey(),
   userId: text('userId').notNull(),
   convocatoriaId: integer('convocatoriaId'),
+  grupoId: integer('grupoId'),
+  requisitoId: integer('requisitoId'),
   nombre: text('nombre').notNull(),
   tipo: text('tipo').notNull(),
   archivoUrl: text('archivoUrl').notNull(),

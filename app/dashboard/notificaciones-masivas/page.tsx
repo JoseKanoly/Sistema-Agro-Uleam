@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -8,8 +8,9 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Send, Bell, Users, CheckCircle2 } from "lucide-react"
+import { Send, Bell, CheckCircle2 } from "lucide-react"
 import { toast } from "sonner"
+import { enviarNotificacionesPorRoles, getHistorialMasivas } from "@/app/actions/notificaciones"
 
 const ROLES_DESTINO = [
   { value: "PROFESOR", label: "Profesores" },
@@ -25,13 +26,12 @@ const TIPO_NOTIF = [
   { value: "urgente", label: "Urgente" },
 ]
 
-interface Enviada {
-  id: number
-  titulo: string
-  mensaje: string
-  tipo: string
-  destinatarios: string[]
-  fecha: string
+const TIPO_BADGE: Record<string, string> = {
+  info: "bg-blue-100 text-blue-700",
+  warning: "bg-yellow-100 text-yellow-700",
+  error: "bg-red-100 text-red-700",
+  advertencia: "bg-yellow-100 text-yellow-700",
+  urgente: "bg-red-100 text-red-700",
 }
 
 export default function NotificacionesMasivasPage() {
@@ -40,10 +40,11 @@ export default function NotificacionesMasivasPage() {
   const [tipo, setTipo] = useState("info")
   const [rolesSeleccionados, setRolesSeleccionados] = useState<string[]>([])
   const [loading, setLoading] = useState(false)
-  const [enviadas, setEnviadas] = useState<Enviada[]>([
-    { id: 1, titulo: "Inicio de periodo academico", mensaje: "Se inicia el periodo 2025-I. Favor actualizar silabos.", tipo: "info", destinatarios: ["PROFESOR", "COORDINADOR"], fecha: "2025-03-01" },
-    { id: 2, titulo: "Plazo de entrega de informes", mensaje: "El plazo para entrega de informes vence el 30 de junio.", tipo: "advertencia", destinatarios: ["PROFESOR"], fecha: "2025-06-01" },
-  ])
+  const [enviadas, setEnviadas] = useState<Awaited<ReturnType<typeof getHistorialMasivas>>>([])
+
+  useEffect(() => {
+    getHistorialMasivas().then(setEnviadas)
+  }, [])
 
   const toggleRol = (rol: string) => {
     setRolesSeleccionados((prev) =>
@@ -57,41 +58,35 @@ export default function NotificacionesMasivasPage() {
     if (rolesSeleccionados.length === 0) { toast.error("Seleccione al menos un grupo destinatario"); return }
 
     setLoading(true)
-    // Simulated send — replace with real API call when backend is ready
-    await new Promise((r) => setTimeout(r, 800))
-
-    const nueva: Enviada = {
-      id: Date.now(),
-      titulo,
-      mensaje,
-      tipo,
-      destinatarios: rolesSeleccionados,
-      fecha: new Date().toISOString().split("T")[0],
+    try {
+      const { enviados } = await enviarNotificacionesPorRoles({
+        titulo: titulo.trim(),
+        mensaje: mensaje.trim(),
+        tipo,
+        roles: rolesSeleccionados,
+      })
+      toast.success(`Notificación enviada a ${enviados} usuario(s)`)
+      setTitulo("")
+      setMensaje("")
+      setRolesSeleccionados([])
+      setTipo("info")
+      const historial = await getHistorialMasivas()
+      setEnviadas(historial)
+    } catch {
+      toast.error("Error al enviar notificaciones")
+    } finally {
+      setLoading(false)
     }
-    setEnviadas((prev) => [nueva, ...prev])
-    setTitulo("")
-    setMensaje("")
-    setRolesSeleccionados([])
-    setTipo("info")
-    setLoading(false)
-    toast.success(`Notificacion enviada a ${rolesSeleccionados.length} grupo(s)`)
-  }
-
-  const TIPO_BADGE: Record<string, string> = {
-    info: "bg-blue-100 text-blue-700",
-    advertencia: "bg-yellow-100 text-yellow-700",
-    urgente: "bg-red-100 text-red-700",
   }
 
   return (
     <div className="space-y-6">
       <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6">
         <h1 className="text-2xl font-bold text-[#0f172a]">Notificaciones Masivas</h1>
-        <p className="text-[#64748b] mt-1">Envia comunicados a grupos de usuarios del sistema</p>
+        <p className="text-[#64748b] mt-1">Los usuarios verán las notificaciones en su bandeja</p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        {/* Formulario */}
         <Card className="border-[#e2e8f0]">
           <CardHeader>
             <CardTitle className="text-[#0f172a] flex items-center gap-2">
@@ -102,20 +97,11 @@ export default function NotificacionesMasivasPage() {
           <CardContent className="space-y-4">
             <div className="space-y-1.5">
               <Label>Titulo *</Label>
-              <Input
-                placeholder="Asunto de la notificacion"
-                value={titulo}
-                onChange={(e) => setTitulo(e.target.value)}
-              />
+              <Input value={titulo} onChange={(e) => setTitulo(e.target.value)} placeholder="Asunto" />
             </div>
             <div className="space-y-1.5">
               <Label>Mensaje *</Label>
-              <Textarea
-                placeholder="Contenido del mensaje..."
-                value={mensaje}
-                onChange={(e) => setMensaje(e.target.value)}
-                rows={4}
-              />
+              <Textarea value={mensaje} onChange={(e) => setMensaje(e.target.value)} rows={4} />
             </div>
             <div className="space-y-1.5">
               <Label>Tipo</Label>
@@ -138,54 +124,38 @@ export default function NotificacionesMasivasPage() {
                       checked={rolesSeleccionados.includes(rol.value)}
                       onCheckedChange={() => toggleRol(rol.value)}
                     />
-                    <label htmlFor={rol.value} className="text-sm text-[#0f172a] cursor-pointer">
-                      {rol.label}
-                    </label>
+                    <label htmlFor={rol.value} className="text-sm cursor-pointer">{rol.label}</label>
                   </div>
                 ))}
               </div>
             </div>
-            <Button
-              onClick={handleEnviar}
-              disabled={loading}
-              className="w-full bg-[#1a6b3c] hover:bg-[#155730] text-white"
-            >
+            <Button onClick={handleEnviar} disabled={loading} className="w-full bg-[#1a6b3c] hover:bg-[#155730]">
               <Send className="w-4 h-4 mr-2" />
               {loading ? "Enviando..." : "Enviar notificacion"}
             </Button>
           </CardContent>
         </Card>
 
-        {/* Historial */}
         <Card className="border-[#e2e8f0]">
           <CardHeader>
-            <CardTitle className="text-[#0f172a] flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2">
               <CheckCircle2 className="w-5 h-5 text-[#1a6b3c]" />
-              Historial de envios
+              Historial reciente
             </CardTitle>
           </CardHeader>
           <CardContent>
             {enviadas.length === 0 ? (
-              <p className="text-[#64748b] text-sm text-center py-6">No hay notificaciones enviadas.</p>
+              <p className="text-sm text-[#64748b] text-center py-6">Sin envíos recientes.</p>
             ) : (
               <div className="space-y-3">
-                {enviadas.map((n) => (
-                  <div key={n.id} className="p-3 rounded-xl border border-[#e2e8f0] bg-[#f8fafc]">
-                    <div className="flex items-start justify-between gap-2">
-                      <p className="text-sm font-semibold text-[#0f172a] line-clamp-1">{n.titulo}</p>
-                      <span className={`text-xs px-2 py-0.5 rounded-full font-medium shrink-0 ${TIPO_BADGE[n.tipo] ?? "bg-gray-100 text-gray-700"}`}>
-                        {n.tipo}
-                      </span>
+                {enviadas.map((n, i) => (
+                  <div key={i} className="p-3 rounded-xl border border-[#e2e8f0] bg-[#f8fafc]">
+                    <div className="flex justify-between gap-2">
+                      <p className="text-sm font-semibold">{n.titulo}</p>
+                      <span className={`text-xs px-2 py-0.5 rounded-full ${TIPO_BADGE[n.tipo] ?? ""}`}>{n.tipo}</span>
                     </div>
                     <p className="text-xs text-[#64748b] mt-1 line-clamp-2">{n.mensaje}</p>
-                    <div className="flex items-center gap-1 mt-2 flex-wrap">
-                      {n.destinatarios.map((d) => (
-                        <span key={d} className="text-[10px] bg-[#e8f5ee] text-[#1a6b3c] px-1.5 py-0.5 rounded-full font-medium">
-                          {ROLES_DESTINO.find((r) => r.value === d)?.label ?? d}
-                        </span>
-                      ))}
-                      <span className="text-[10px] text-[#94a3b8] ml-auto">{n.fecha}</span>
-                    </div>
+                    <p className="text-[10px] text-[#94a3b8] mt-2">{n.fecha}</p>
                   </div>
                 ))}
               </div>

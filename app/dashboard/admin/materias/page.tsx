@@ -90,6 +90,10 @@ export default function MateriasPage() {
                 <TableHead>Nombre</TableHead>
                 <TableHead>Carrera</TableHead>
                 <TableHead>Nivel</TableHead>
+                <TableHead>ACD</TableHead>
+                <TableHead>APE</TableHead>
+                <TableHead>AA</TableHead>
+                <TableHead>HRS</TableHead>
                 <TableHead>Creditos</TableHead>
                 <TableHead>Docente</TableHead>
                 <TableHead>Estado</TableHead>
@@ -103,6 +107,10 @@ export default function MateriasPage() {
                   <TableCell className="font-medium">{m.nombre}</TableCell>
                   <TableCell className="text-sm text-[#64748b]">{carrerasMock.find((c) => c.id === m.carreraId)?.siglas}</TableCell>
                   <TableCell className="text-center">{m.nivel}</TableCell>
+                  <TableCell className="text-center text-sm">{m.acd ?? 0}</TableCell>
+                  <TableCell className="text-center text-sm">{m.ape ?? 0}</TableCell>
+                  <TableCell className="text-center text-sm">{m.aa ?? 0}</TableCell>
+                  <TableCell className="text-center text-sm font-medium">{m.horas ?? 0}</TableCell>
                   <TableCell className="text-center">{m.creditos}</TableCell>
                   <TableCell className="text-sm text-[#64748b]">{m.docente}</TableCell>
                   <TableCell>

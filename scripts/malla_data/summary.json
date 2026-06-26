@@ -1,0 +1,80 @@
+{
+  "agroindustrial": {
+    "codes": 40,
+    "acd_blocks": 9,
+    "codes_list": [
+      "AGRIND-101",
+      "AGRIND-103",
+      "PAM-5202",
+      "PAM-1202",
+      "AGRIND-104",
+      "9901V01-R22",
+      "PAM-2501",
+      "PAM-2212.1",
+      "PAM-1209",
+      "PAM-1202.1",
+      "PAM-2302",
+      "9901V02-R22",
+      "AGRIND-303",
+      "AGRIND-304",
+      "AGRIND-405",
+      "PAM-1219",
+      "PAM-2414",
+      "9901V03-R22",
+      "AGRIND-305",
+      "AGRIND-501"
+    ]
+  },
+  "agropecuaria": {
+    "codes": 53,
+    "acd_blocks": 0,
+    "codes_list": [
+      "AGR-101",
+      "AGR-102",
+      "AGR-103",
+      "AGR-104",
+      "AGR-105",
+      "AGR-106",
+      "AGR-201",
+      "AGR-202",
+      "AGR-203",
+      "AGR-204",
+      "AGR-205",
+      "AGR-206",
+      "AGR-301",
+      "AGR-302",
+      "AGR-303",
+      "AGR-304",
+      "AGR-305",
+      "AGR-306",
+      "AGR-401",
+      "AGR-402"
+    ]
+  },
+  "agronegocios": {
+    "codes": 36,
+    "acd_blocks": 0,
+    "codes_list": [
+      "AGRN-101",
+      "AGRN-102",
+      "AGRN-103",
+      "AGRN-104",
+      "INST-CAAL",
+      "AGRN-106",
+      "AGRN-201",
+      "AGRN-202",
+      "AGRN-203",
+      "INST-ECGL",
+      "AGRN-205",
+      "AGRN-206",
+      "AGRN-301",
+      "AGRN-302",
+      "AGRN-303",
+      "AGRN-304",
+      "AGRN-305",
+      "AGRN-306",
+      "AGRN-401",
+      "AGRN-402"
+    ]
+  }
+}

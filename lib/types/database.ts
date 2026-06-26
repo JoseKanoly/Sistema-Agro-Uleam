@@ -58,6 +58,10 @@ export interface Materia {
   codigo: string
   creditos: number
   nivel: number
+  acd?: number
+  ape?: number
+  aa?: number
+  horas?: number
   docente: string
   activa: boolean
 }

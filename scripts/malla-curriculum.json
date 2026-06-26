@@ -1,0 +1,1316 @@
+[
+  {
+    "key": "agroindustrial",
+    "nombre": "Ingeniería Agroindustrial",
+    "siglas": "IAgroind",
+    "facultad": "Facultad de Ciencias Agropecuarias",
+    "materias": [
+      {
+        "codigo": "AGRIND-101",
+        "nombre": "Química Inorgánica",
+        "nivel": 1,
+        "acd": 64,
+        "ape": 80,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRIND-103",
+        "nombre": "Fundamentos de Física",
+        "nivel": 1,
+        "acd": 64,
+        "ape": 80,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "PAM-5202",
+        "nombre": "Metodología de la Investigación",
+        "nivel": 1,
+        "acd": 64,
+        "ape": 32,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "PAM-1202",
+        "nombre": "Cálculo Diferencial",
+        "nivel": 1,
+        "acd": 64,
+        "ape": 80,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRIND-104",
+        "nombre": "Introducción a la Agroindustria",
+        "nivel": 1,
+        "acd": 64,
+        "ape": 32,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "9901V01-R22",
+        "nombre": "Cátedra Alfaro",
+        "nivel": 1,
+        "acd": 0,
+        "ape": 0,
+        "aa": 96,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "PAM-2501",
+        "nombre": "Química Orgánica",
+        "nivel": 2,
+        "acd": 64,
+        "ape": 80,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "PAM-2212.1",
+        "nombre": "Física",
+        "nivel": 2,
+        "acd": 64,
+        "ape": 80,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "PAM-1209",
+        "nombre": "Estadística",
+        "nivel": 2,
+        "acd": 64,
+        "ape": 32,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "PAM-1202.1",
+        "nombre": "Cálculo Integral",
+        "nivel": 2,
+        "acd": 64,
+        "ape": 80,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "PAM-2302",
+        "nombre": "Biología",
+        "nivel": 2,
+        "acd": 64,
+        "ape": 32,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "9901V02-R22",
+        "nombre": "Economía Global",
+        "nivel": 2,
+        "acd": 0,
+        "ape": 0,
+        "aa": 96,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-303",
+        "nombre": "Química Analítica",
+        "nivel": 3,
+        "acd": 64,
+        "ape": 32,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-304",
+        "nombre": "Termodinámica",
+        "nivel": 3,
+        "acd": 48,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-405",
+        "nombre": "Diseño Experimental",
+        "nivel": 3,
+        "acd": 64,
+        "ape": 32,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "PAM-1219",
+        "nombre": "Ecuaciones Diferenciales",
+        "nivel": 3,
+        "acd": 64,
+        "ape": 80,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "PAM-2414",
+        "nombre": "Microbiología",
+        "nivel": 3,
+        "acd": 0,
+        "ape": 80,
+        "aa": 112,
+        "creditos": 4,
+        "horas": 192
+      },
+      {
+        "codigo": "9901V03-R22",
+        "nombre": "Innovación, Liderazgo y Emprendimiento",
+        "nivel": 3,
+        "acd": 0,
+        "ape": 0,
+        "aa": 96,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-305",
+        "nombre": "Análisis Instrumental",
+        "nivel": 4,
+        "acd": 96,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRIND-501",
+        "nombre": "Cálculos de Ingeniería",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-505",
+        "nombre": "Investigación Operativa",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 96,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRIND-404",
+        "nombre": "Bromatología",
+        "nivel": 4,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-502",
+        "nombre": "Biotecnología",
+        "nivel": 4,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-401A",
+        "nombre": "Química de los Alimentos",
+        "nivel": 4,
+        "acd": 32,
+        "ape": 32,
+        "aa": 80,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRIND-402",
+        "nombre": "Nutrición",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-701",
+        "nombre": "Transferencia de Calor",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-803A",
+        "nombre": "Análisis Sensorial",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 96,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRIND-406",
+        "nombre": "Contabilidad",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-504",
+        "nombre": "Poscosecha",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 16,
+        "aa": 80,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRIND-503",
+        "nombre": "Industrialización de Frutas y Hortalizas",
+        "nivel": 5,
+        "acd": 32,
+        "ape": 32,
+        "aa": 80,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRIND-601",
+        "nombre": "Ingeniería de Materiales",
+        "nivel": 6,
+        "acd": 64,
+        "ape": 32,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-707",
+        "nombre": "Industrias Cárnicas",
+        "nivel": 6,
+        "acd": 32,
+        "ape": 32,
+        "aa": 128,
+        "creditos": 4,
+        "horas": 192
+      },
+      {
+        "codigo": "AGRIND-607",
+        "nombre": "Industrias Pesqueras",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-801",
+        "nombre": "Industrias de Granos y Cereales",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-506",
+        "nombre": "Industrias de Bebidas",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-603",
+        "nombre": "Industrias de Aceites y Grasas",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRIND-1003",
+        "nombre": "Marco Legal Agroindustrial",
+        "nivel": 7,
+        "acd": 144,
+        "ape": 96,
+        "aa": 0,
+        "creditos": 5,
+        "horas": 240
+      },
+      {
+        "codigo": "AGRIND-1007",
+        "nombre": "Proyecto Integrador Agroindustrial",
+        "nivel": 7,
+        "acd": 96,
+        "ape": 48,
+        "aa": 0,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRIND-804A",
+        "nombre": "Gestión Ambiental",
+        "nivel": 7,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "PAM-6301.2",
+        "nombre": "Prácticas de Servicio Comunitario II",
+        "nivel": 7,
+        "acd": 16,
+        "ape": 16,
+        "aa": 160,
+        "creditos": 4,
+        "horas": 192
+      }
+    ]
+  },
+  {
+    "key": "agropecuaria",
+    "nombre": "Ingeniería Agropecuaria",
+    "siglas": "IAgropec",
+    "facultad": "Facultad de Ciencias Agropecuarias",
+    "materias": [
+      {
+        "codigo": "AGR-101",
+        "nombre": "Biología",
+        "nivel": 1,
+        "acd": 48,
+        "ape": 32,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-102",
+        "nombre": "Química General",
+        "nivel": 1,
+        "acd": 48,
+        "ape": 32,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-103",
+        "nombre": "Matemática",
+        "nivel": 1,
+        "acd": 64,
+        "ape": 16,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-104",
+        "nombre": "Metodología de la Investigación",
+        "nivel": 1,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-105",
+        "nombre": "Introducción a las Ciencias Agropecuarias",
+        "nivel": 1,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-106",
+        "nombre": "Cátedra Alfaro",
+        "nivel": 1,
+        "acd": 32,
+        "ape": 16,
+        "aa": 48,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-201",
+        "nombre": "Botánica General",
+        "nivel": 2,
+        "acd": 48,
+        "ape": 32,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-202",
+        "nombre": "Química Orgánica",
+        "nivel": 2,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-203",
+        "nombre": "Física",
+        "nivel": 2,
+        "acd": 48,
+        "ape": 16,
+        "aa": 32,
+        "creditos": 3,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-204",
+        "nombre": "Microbiología",
+        "nivel": 2,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-205",
+        "nombre": "Zoología General",
+        "nivel": 2,
+        "acd": 48,
+        "ape": 32,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-206",
+        "nombre": "Meteorología",
+        "nivel": 2,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-301",
+        "nombre": "Botánica Sistemática",
+        "nivel": 3,
+        "acd": 48,
+        "ape": 16,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-302",
+        "nombre": "Ciencias del Suelo",
+        "nivel": 3,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-303",
+        "nombre": "Topografía",
+        "nivel": 3,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-304",
+        "nombre": "Sanidad Vegetal",
+        "nivel": 3,
+        "acd": 48,
+        "ape": 32,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-305",
+        "nombre": "Anatomía y Fisiología Animal",
+        "nivel": 3,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-306",
+        "nombre": "Economía Global",
+        "nivel": 3,
+        "acd": 32,
+        "ape": 16,
+        "aa": 48,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-401",
+        "nombre": "Fitogenética y Mejoramiento",
+        "nivel": 4,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-402",
+        "nombre": "Construcciones Agropecuarias",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 32,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-403",
+        "nombre": "Sistemas de Información Geográfica",
+        "nivel": 4,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-404",
+        "nombre": "Nutrición Vegetal",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-405",
+        "nombre": "Sanidad Animal",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-406",
+        "nombre": "Agroecología y Humedad de Suelos",
+        "nivel": 4,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-501",
+        "nombre": "Innovación, Liderazgo y Emprendimiento",
+        "nivel": 5,
+        "acd": 32,
+        "ape": 16,
+        "aa": 48,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-502",
+        "nombre": "Economía Agropecuaria",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 32,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-503",
+        "nombre": "Sistemas de Riego y Drenaje",
+        "nivel": 5,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-504",
+        "nombre": "Agroforestería",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 32,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-505",
+        "nombre": "Métodos Estadísticos y Experimental",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-506",
+        "nombre": "Mecanización Agrícola",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-601",
+        "nombre": "Fundamentos de la Agricultura",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-602",
+        "nombre": "Agricultura de Precisión",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 16,
+        "aa": 32,
+        "creditos": 3,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-603",
+        "nombre": "Práctica Comunitaria SVCP-VIR001",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-604",
+        "nombre": "Pastos y Forrajes",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-605",
+        "nombre": "Sistemas de Ciclo Corto",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-606",
+        "nombre": "Sistemas de Producción Perenne",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 16,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-701",
+        "nombre": "Nutrición Animal",
+        "nivel": 7,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-702",
+        "nombre": "Producción Animal",
+        "nivel": 7,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 4,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-703",
+        "nombre": "Sistemas de Producción Apícola",
+        "nivel": 7,
+        "acd": 48,
+        "ape": 32,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGR-704",
+        "nombre": "Sistemas de Producción Avícola",
+        "nivel": 7,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-705",
+        "nombre": "Sistemas de Especies Menores",
+        "nivel": 7,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-706",
+        "nombre": "Sistemas de Producción Porcícola",
+        "nivel": 7,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-801",
+        "nombre": "Gestión Agropecuaria y Administrativa",
+        "nivel": 8,
+        "acd": 48,
+        "ape": 16,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-802",
+        "nombre": "Preparación y Presentación de Proyectos",
+        "nivel": 8,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 5,
+        "horas": 96
+      },
+      {
+        "codigo": "P.R.",
+        "nombre": "P.R.",
+        "nivel": 8,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-803",
+        "nombre": "Desarrollo Local",
+        "nivel": 8,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-804",
+        "nombre": "Biotecnología",
+        "nivel": 8,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "FIP-6302-1",
+        "nombre": "Prácticas Preprofesionales I",
+        "nivel": 8,
+        "acd": 16,
+        "ape": 16,
+        "aa": 160,
+        "creditos": 4,
+        "horas": 192
+      },
+      {
+        "codigo": "AGR-901",
+        "nombre": "Sociología Rural",
+        "nivel": 9,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-902",
+        "nombre": "Prácticas Preprofesionales Agropecuarias",
+        "nivel": 9,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 5,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-903",
+        "nombre": "Diseño y Evaluación de Proyectos",
+        "nivel": 9,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGR-904",
+        "nombre": "Marco Legal Agropecuario",
+        "nivel": 9,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "FIP-6302-2",
+        "nombre": "Prácticas Preprofesionales II",
+        "nivel": 9,
+        "acd": 16,
+        "ape": 16,
+        "aa": 160,
+        "creditos": 4,
+        "horas": 192
+      }
+    ]
+  },
+  {
+    "key": "agronegocios",
+    "nombre": "Agronegocios",
+    "siglas": "AgNeg",
+    "facultad": "Facultad de Ciencias Agropecuarias",
+    "materias": [
+      {
+        "codigo": "AGRN-101",
+        "nombre": "Biología",
+        "nivel": 1,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-102",
+        "nombre": "Matemática",
+        "nivel": 1,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-103",
+        "nombre": "Química",
+        "nivel": 1,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-104",
+        "nombre": "Introducción a los Negocios Agrícolas",
+        "nivel": 1,
+        "acd": 32,
+        "ape": 16,
+        "aa": 48,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "INST-CAAL",
+        "nombre": "Cátedra Alfaro",
+        "nivel": 1,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-106",
+        "nombre": "Investigación Aplicada a los Negocios Agrícolas",
+        "nivel": 1,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-201",
+        "nombre": "Botánica",
+        "nivel": 2,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-202",
+        "nombre": "Matemática Financiera",
+        "nivel": 2,
+        "acd": 32,
+        "ape": 16,
+        "aa": 48,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-203",
+        "nombre": "Estadística",
+        "nivel": 2,
+        "acd": 48,
+        "ape": 32,
+        "aa": 64,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "INST-ECGL",
+        "nombre": "Economía Global",
+        "nivel": 2,
+        "acd": 32,
+        "ape": 32,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-205",
+        "nombre": "Agricultura Alternativa y Colaborativa",
+        "nivel": 2,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-206",
+        "nombre": "Ciencias del Suelo",
+        "nivel": 2,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-301",
+        "nombre": "Contabilidad Agrícola",
+        "nivel": 3,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-302",
+        "nombre": "Administración de la Producción",
+        "nivel": 3,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-303",
+        "nombre": "Legislación y Política Nacional",
+        "nivel": 3,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-304",
+        "nombre": "Sistemas Pecuarios y Acuicultura",
+        "nivel": 3,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-305",
+        "nombre": "Sistemas de Producción Agrícola",
+        "nivel": 3,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 3,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-306",
+        "nombre": "Optimización del Riego",
+        "nivel": 3,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-401",
+        "nombre": "Contabilidad Financiera",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-402",
+        "nombre": "Teoría Macro y Microeconómica",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "INST-INEL",
+        "nombre": "Emprendimiento, Innovación y Creatividad",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-404",
+        "nombre": "Biotecnología Agrícola",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 4,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-405",
+        "nombre": "Manejo Postcosecha",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 16,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-406",
+        "nombre": "Sistemas de Información Geográfica",
+        "nivel": 4,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-501",
+        "nombre": "Economía Agrícola",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 16,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-502",
+        "nombre": "Prácticas Comunitarias de Servicio",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-503",
+        "nombre": "Inventarios y Cadena de Suministro",
+        "nivel": 5,
+        "acd": 64,
+        "ape": 32,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-504",
+        "nombre": "Gerencia Financiera",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-505",
+        "nombre": "Sistemas Agroindustriales",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-506",
+        "nombre": "Agricultura de Precisión",
+        "nivel": 5,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-601",
+        "nombre": "Economía Solidaria Popular",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-602",
+        "nombre": "Prácticas Comunitarias de Servicio II",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 4,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-603",
+        "nombre": "Bioproductos y Biocomercio",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 48,
+        "aa": 48,
+        "creditos": 3,
+        "horas": 144
+      },
+      {
+        "codigo": "AGRN-604",
+        "nombre": "Bioeconomía",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 16,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-605",
+        "nombre": "Técnicas de Negociación",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 32,
+        "aa": 16,
+        "creditos": 2,
+        "horas": 96
+      },
+      {
+        "codigo": "AGRN-606",
+        "nombre": "Desarrollo Territorial Rural",
+        "nivel": 6,
+        "acd": 48,
+        "ape": 16,
+        "aa": 32,
+        "creditos": 2,
+        "horas": 96
+      }
+    ]
+  }
+]
