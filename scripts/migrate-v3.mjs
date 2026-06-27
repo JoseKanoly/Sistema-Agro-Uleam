@@ -1,7 +1,7 @@
 import pg from 'pg'
 
 const connectionString =
-  process.env.DATABASE_URL ?? 'postgresql://postgres:2026@localhost:5432/postgres'
+  process.env.DATABASE_URL
 
 const statements = [
   `ALTER TABLE "perfiles" ADD COLUMN IF NOT EXISTS "esTutorTitulacion" BOOLEAN NOT NULL DEFAULT FALSE`,

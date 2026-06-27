@@ -1,8 +1,7 @@
 import pg from 'pg'
 
 const connectionString =
-  process.env.DATABASE_URL ?? 'postgresql://postgres:2026@localhost:5432/postgres'
-
+  process.env.DATABASE_URL
 const statements = [
   `CREATE TABLE IF NOT EXISTS "convocatorias" (
     "id" SERIAL PRIMARY KEY,

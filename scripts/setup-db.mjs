@@ -6,7 +6,7 @@ import { dirname, join } from 'path'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const connectionString =
-  process.env.DATABASE_URL ?? 'postgresql://postgres:2026@localhost:5432/postgres'
+  process.env.DATABASE_URL
 
 async function main() {
   const pool = new pg.Pool({ connectionString, ssl: false })
