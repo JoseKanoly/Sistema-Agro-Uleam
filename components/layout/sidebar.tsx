@@ -8,9 +8,16 @@ import {
   LayoutDashboard, Users, BookOpen, GraduationCap, FlaskConical,
   FileText, CalendarCheck, Bell, Settings, LogOut, ChevronDown,
   ChevronRight, Building2, ClipboardList, Microscope, Link2, Trophy,
-  Menu, X, UserCheck, AlertCircle, FilePlus, BarChart3, Beaker,
+  Menu, X, UserCheck, AlertCircle, FilePlus, BarChart3, Beaker, ChevronsUpDown, PanelLeft,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 // Roles must match the DB / lib/types/database.ts exactly (UPPER_CASE)
 type Rol = "SUPER_ADMIN" | "ADMIN" | "COORDINADOR" | "PROFESOR" | "SECRETARIA" | "ESTUDIANTE"
@@ -110,9 +117,8 @@ const navItems: NavItem[] = [
     ],
   },
 
-  // Notificaciones y Perfil
+  // Notificaciones
   { label: "Notificaciones", href: "/dashboard/notificaciones", icon: Bell, roles: ALL },
-  { label: "Mi Perfil", href: "/dashboard/perfil", icon: Settings, roles: ALL },
 ]
 
 interface SidebarProps {
@@ -121,9 +127,11 @@ interface SidebarProps {
   userEmail: string
   esInvestigador?: boolean
   esTutorTitulacion?: boolean
+  isOpen?: boolean
+  setIsOpen?: (open: boolean) => void
 }
 
-export function Sidebar({ rol, userName, userEmail, esInvestigador = false, esTutorTitulacion = false }: SidebarProps) {
+export function Sidebar({ rol, userName, userEmail, esInvestigador = false, esTutorTitulacion = false, isOpen = true, setIsOpen }: SidebarProps) {
   const pathname = usePathname()
   const router = useRouter()
   const [open, setOpen] = useState(false)
@@ -158,29 +166,15 @@ export function Sidebar({ rol, userName, userEmail, esInvestigador = false, esTu
   }
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full bg-[#0f2419]">
+    <div className="flex flex-col h-full bg-[#353535]">
       {/* Logo */}
-      <div className="px-4 py-5 border-b border-[#1e3a2a]">
+      <div className="pl-4 pr-3 py-4 border-b border-none">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-[#22c55e] flex items-center justify-center flex-shrink-0">
-            <GraduationCap className="w-5 h-5 text-[#0f2419]" />
+          <div className="w-9 h-9 rounded-lg bg-[#353535] flex items-center justify-center shrink-0">
+            <GraduationCap className="w-6 h-6 text-[#D9D9D9]" />
           </div>
           <div className="min-w-0">
-            <p className="text-[#d1fae5] font-bold text-sm leading-tight truncate">SISPAA</p>
-            <p className="text-[#6b9a7f] text-xs truncate">Gestion Academica</p>
-          </div>
-        </div>
-      </div>
-
-      {/* User info */}
-      <div className="px-4 py-3 border-b border-[#1e3a2a]">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-[#22c55e]/20 flex items-center justify-center flex-shrink-0">
-            <span className="text-[#22c55e] text-xs font-bold">{userName.charAt(0).toUpperCase()}</span>
-          </div>
-          <div className="min-w-0">
-            <p className="text-[#d1fae5] text-xs font-semibold truncate">{userName}</p>
-            <span className="text-[10px] bg-[#22c55e]/20 text-[#22c55e] px-1.5 py-0.5 rounded-full font-medium">{roleLabel[rol]}</span>
+            <p className="text-[#E0E0E0] font-semibold text-sm leading-tight truncate">SISPAA</p>
           </div>
         </div>
       </div>
@@ -198,15 +192,15 @@ export function Sidebar({ rol, userName, userEmail, esInvestigador = false, esTu
                   onClick={() => toggleGroup(item.label)}
                   className={cn(
                     "w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors text-left",
-                    hasActive ? "bg-[#1a3d27] text-[#d1fae5]" : "text-[#6b9a7f] hover:bg-[#1a3d27] hover:text-[#d1fae5]"
+                    hasActive ? "bg-[#444444] text-[#E0E0E0]" : "text-[#9E9E9E] hover:bg-[#444444] hover:text-[#E0E0E0]"
                   )}
                 >
-                  <Icon className="w-4 h-4 flex-shrink-0" />
+                  <Icon className="w-4 h-4 shrink-0" />
                   <span className="flex-1 font-medium">{item.label}</span>
                   {isExpanded ? <ChevronDown className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
                 </button>
                 {isExpanded && (
-                  <div className="ml-4 mt-0.5 space-y-0.5 border-l border-[#1e3a2a] pl-3">
+                  <div className="ml-4 mt-0.5 space-y-0.5 border-l border-[#4A4A4A] pl-3">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
@@ -215,8 +209,8 @@ export function Sidebar({ rol, userName, userEmail, esInvestigador = false, esTu
                         className={cn(
                           "block px-3 py-1.5 rounded-lg text-xs transition-colors",
                           isActive(child.href)
-                            ? "bg-[#22c55e] text-[#0f2419] font-semibold"
-                            : "text-[#6b9a7f] hover:bg-[#1a3d27] hover:text-[#d1fae5]"
+                            ? "bg-[#3C6E71] text-white font-semibold"
+                            : "text-[#9E9E9E] hover:bg-[#444444] hover:text-[#E0E0E0]"
                         )}
                       >
                         {child.label}
@@ -235,26 +229,60 @@ export function Sidebar({ rol, userName, userEmail, esInvestigador = false, esTu
               className={cn(
                 "flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors",
                 isActive(item.href!)
-                  ? "bg-[#22c55e] text-[#0f2419] font-semibold"
-                  : "text-[#6b9a7f] hover:bg-[#1a3d27] hover:text-[#d1fae5]"
+                  ? "bg-[#3C6E71] text-white font-base"
+                  : "text-[#9E9E9E] hover:bg-[#444444] hover:text-[#E0E0E0]"
               )}
             >
-              <Icon className="w-4 h-4 flex-shrink-0" />
+              <Icon className="w-4 h-4 shrink-0" />
               <span>{item.label}</span>
             </Link>
           )
         })}
       </nav>
 
-      {/* Sign out */}
-      <div className="p-2 border-t border-[#1e3a2a]">
-        <button
-          onClick={handleSignOut}
-          className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm text-[#6b9a7f] hover:bg-red-900/30 hover:text-red-400 transition-colors"
-        >
-          <LogOut className="w-4 h-4 flex-shrink-0" />
-          <span>Cerrar sesion</span>
-        </button>
+      {/* User Profile / Sign out Dropdown */}
+      <div className="p-2 border-t border-[#4A4A4A]">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <button className="w-full flex items-center justify-between gap-2 p-2 rounded-lg text-[#E0E0E0] hover:bg-[#444444] transition-colors text-left">
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="w-7 h-7 rounded-md bg-[#E0E0E0] text-[#353535] flex items-center justify-center shrink-0 text-sm">
+                  {userName.charAt(0).toUpperCase()}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm truncate">{userName}</p>
+                </div>
+              </div>
+              <ChevronsUpDown className="w-4 h-4 text-[#9E9E9E]" />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56" side="top" sideOffset={8}>
+            <div className="flex items-center gap-2 p-2">
+              <div className="w-8 h-8 rounded-md bg-gray-100 text-gray-700 flex items-center justify-center shrink-0 font-bold text-sm">
+                {userName.charAt(0).toUpperCase()}
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-semibold truncate">{userName}</p>
+                <p className="text-xs text-gray-500 truncate">{userEmail}</p>
+              </div>
+            </div>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild className="cursor-pointer hover:bg-gray-200 focus:bg-gray-200 hover:text-gray-900 focus:text-gray-900">
+              <Link href="/dashboard/perfil" className="w-full flex items-center gap-2">
+                <Settings className="w-4 h-4" />
+                Mi perfil
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem 
+              onClick={handleSignOut}
+              className="text-red-600 focus:text-red-600 focus:bg-red-50 cursor-pointer flex items-center gap-2"
+            >
+              <LogOut className="w-4 h-4" />
+              Cerrar sesión
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </div>
   )
@@ -262,14 +290,14 @@ export function Sidebar({ rol, userName, userEmail, esInvestigador = false, esTu
   return (
     <>
       {/* Desktop */}
-      <aside className="hidden lg:flex w-60 flex-col fixed inset-y-0 left-0 z-30">
+      <aside className={cn("hidden lg:flex w-60 flex-col fixed inset-y-0 left-0 z-30 transition-transform duration-300", !isOpen && "-translate-x-full")}>
         <SidebarContent />
       </aside>
 
       {/* Mobile toggle */}
       <button
         onClick={() => setOpen(true)}
-        className="lg:hidden fixed top-3 left-3 z-40 p-2 bg-[#0f2419] rounded-lg text-[#d1fae5]"
+        className="lg:hidden fixed top-3 left-3 z-40 p-2 bg-[#353535] rounded-lg text-[#E0E0E0]"
       >
         <Menu className="w-5 h-5" />
       </button>
@@ -281,7 +309,7 @@ export function Sidebar({ rol, userName, userEmail, esInvestigador = false, esTu
           <aside className="relative w-64 flex flex-col z-50">
             <button
               onClick={() => setOpen(false)}
-              className="absolute top-3 right-3 p-1.5 rounded-lg bg-[#1a3d27] text-[#d1fae5] z-10"
+              className="absolute top-3 right-3 p-1.5 rounded-lg bg-[#444444] text-[#E0E0E0] z-10"
             >
               <X className="w-4 h-4" />
             </button>
