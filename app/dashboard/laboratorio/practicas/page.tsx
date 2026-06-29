@@ -44,35 +44,35 @@ export default function PracticasListPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Prácticas de Laboratorio</h1>
-          <p className="text-[#64748b] mt-1">Registro completo de prácticas con equipos, reactivos y asistencia</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Prácticas de Laboratorio</h1>
+          <p className="text-[#6B7280] mt-1">Registro completo de prácticas con equipos, reactivos y asistencia</p>
         </div>
         <Link href="/dashboard/laboratorio/practicas/nueva">
-          <Button className="bg-[#536493] hover:bg-[#435274]">
+          <Button className="bg-[#536493] hover:bg-[#3F516E]">
             <Plus className="w-4 h-4 mr-2" />Nueva práctica
           </Button>
         </Link>
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
-          <CardTitle className="text-[#0f172a]">Listado</CardTitle>
+          <CardTitle className="text-[#353535]">Listado</CardTitle>
           <CardDescription>{rows.length} práctica(s) registrada(s)</CardDescription>
         </CardHeader>
         <CardContent>
           {rows.length === 0 ? (
-            <p className="text-center text-[#64748b] py-8">No hay prácticas. Cree la primera con el botón superior.</p>
+            <p className="text-center text-[#6B7280] py-8">No hay prácticas. Cree la primera con el botón superior.</p>
           ) : (
             <div className="space-y-3">
               {rows.map((p) => {
                 const cfg = estadoConfig[p.estado] ?? estadoConfig.programada
                 return (
-                  <div key={p.id} className="border border-[#e2e8f0] rounded-xl p-4 flex items-start justify-between gap-4">
+                  <div key={p.id} className="border border-[#D9D9D9] rounded-xl p-4 flex items-start justify-between gap-4">
                     <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-[#0f172a]">{p.tema}</p>
-                      <div className="flex flex-wrap gap-3 mt-2 text-xs text-[#64748b]">
+                      <p className="font-semibold text-[#353535]">{p.tema}</p>
+                      <div className="flex flex-wrap gap-3 mt-2 text-xs text-[#6B7280]">
                         <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{p.fecha}</span>
                         <span>{labMap[p.laboratorioId] ?? `Lab #${p.laboratorioId}`}</span>
                         {p.docenteNombre && <span>{p.docenteNombre}</span>}

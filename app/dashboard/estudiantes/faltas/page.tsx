@@ -17,7 +17,7 @@ import { toast } from "sonner"
 
 const TIPO_COLOR: Record<Falta["tipo"], string> = {
   injustificada: "bg-red-100 text-red-700",
-  justificada: "bg-[#e8f5ee] text-[#1a6b3c]",
+  justificada: "bg-[#E0EEEF] text-[#3C6E71]",
   atraso: "bg-yellow-100 text-yellow-700",
 }
 
@@ -69,42 +69,42 @@ export default function FaltasPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Faltas</h1>
-          <p className="text-[#64748b] mt-1">Registro de asistencia y faltas</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Faltas</h1>
+          <p className="text-[#6B7280] mt-1">Registro de asistencia y faltas</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">
           <Plus className="w-4 h-4 mr-2" />Registrar falta
         </Button>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <AlertTriangle className="w-8 h-8 text-red-500" />
-            <div><p className="text-xs text-[#64748b]">Injustificadas</p><p className="text-2xl font-bold text-[#0f172a]">{faltas.filter((f) => f.tipo === "injustificada").length}</p></div>
+            <div><p className="text-xs text-[#6B7280]">Injustificadas</p><p className="text-2xl font-bold text-[#353535]">{faltas.filter((f) => f.tipo === "injustificada").length}</p></div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
-            <CheckCircle className="w-8 h-8 text-[#22c55e]" />
-            <div><p className="text-xs text-[#64748b]">Justificadas</p><p className="text-2xl font-bold text-[#0f172a]">{faltas.filter((f) => f.tipo === "justificada").length}</p></div>
+            <CheckCircle className="w-8 h-8 text-[#72c184]" />
+            <div><p className="text-xs text-[#6B7280]">Justificadas</p><p className="text-2xl font-bold text-[#353535]">{faltas.filter((f) => f.tipo === "justificada").length}</p></div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <Clock className="w-8 h-8 text-yellow-500" />
-            <div><p className="text-xs text-[#64748b]">Atrasos</p><p className="text-2xl font-bold text-[#0f172a]">{faltas.filter((f) => f.tipo === "atraso").length}</p></div>
+            <div><p className="text-xs text-[#6B7280]">Atrasos</p><p className="text-2xl font-bold text-[#353535]">{faltas.filter((f) => f.tipo === "atraso").length}</p></div>
           </CardContent>
         </Card>
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
           <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-sm">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]" />
               <Input placeholder="Buscar estudiante..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" />
             </div>
             <Select value={filterTipo} onValueChange={setFilterTipo}>
@@ -137,12 +137,12 @@ export default function FaltasPage() {
                 return (
                   <TableRow key={f.id}>
                     <TableCell className="font-medium">{est ? `${est.nombres} ${est.apellidos}` : `Est. ${f.estudianteId}`}</TableCell>
-                    <TableCell className="text-sm text-[#64748b]">{materia?.nombre ?? `Materia ${f.materiaId}`}</TableCell>
+                    <TableCell className="text-sm text-[#6B7280]">{materia?.nombre ?? `Materia ${f.materiaId}`}</TableCell>
                     <TableCell className="text-sm">{f.fecha}</TableCell>
                     <TableCell>
                       <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${TIPO_COLOR[f.tipo]}`}>{f.tipo}</span>
                     </TableCell>
-                    <TableCell className="text-sm text-[#64748b] max-w-[200px] truncate">{f.observacion}</TableCell>
+                    <TableCell className="text-sm text-[#6B7280] max-w-[200px] truncate">{f.observacion}</TableCell>
                     <TableCell className="text-right">
                       <div className="flex justify-end gap-1">
                         <Button variant="ghost" size="sm" onClick={() => openEdit(f)}><Pencil className="w-4 h-4" /></Button>
@@ -197,7 +197,7 @@ export default function FaltasPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button onClick={handleSave} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">Guardar</Button>
+            <Button onClick={handleSave} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

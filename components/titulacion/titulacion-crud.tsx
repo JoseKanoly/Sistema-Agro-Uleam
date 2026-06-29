@@ -87,42 +87,42 @@ export function TitulacionCrud() {
 
   return (
     <>
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between mb-6">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Titulación</h1>
-          <p className="text-[#64748b] mt-1">Gestión de temas de titulación</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Titulación</h1>
+          <p className="text-[#6B7280] mt-1">Gestión de temas de titulación</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730]">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C]">
           <Plus className="w-4 h-4 mr-2" />Nuevo tema
         </Button>
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
-          <CardTitle className="text-[#0f172a]">Temas registrados</CardTitle>
+          <CardTitle className="text-[#353535]">Temas registrados</CardTitle>
           <CardDescription>{temas.length} tema(s)</CardDescription>
         </CardHeader>
         <CardContent>
           {temas.length === 0 ? (
-            <p className="text-center text-[#64748b] py-8">No hay temas registrados.</p>
+            <p className="text-center text-[#6B7280] py-8">No hay temas registrados.</p>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-[#e2e8f0]">
-                    <th className="text-left py-3 px-3 text-[#64748b]">Título</th>
-                    <th className="text-left py-3 px-3 text-[#64748b]">Tutor</th>
-                    <th className="text-left py-3 px-3 text-[#64748b]">Modalidad</th>
-                    <th className="text-left py-3 px-3 text-[#64748b]">Avance</th>
-                    <th className="text-left py-3 px-3 text-[#64748b]">Estado</th>
-                    <th className="text-right py-3 px-3 text-[#64748b]">Acciones</th>
+                  <tr className="border-b border-[#D9D9D9]">
+                    <th className="text-left py-3 px-3 text-[#6B7280]">Título</th>
+                    <th className="text-left py-3 px-3 text-[#6B7280]">Tutor</th>
+                    <th className="text-left py-3 px-3 text-[#6B7280]">Modalidad</th>
+                    <th className="text-left py-3 px-3 text-[#6B7280]">Avance</th>
+                    <th className="text-left py-3 px-3 text-[#6B7280]">Estado</th>
+                    <th className="text-right py-3 px-3 text-[#6B7280]">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   {temas.map((t) => {
                     const cfg = estadoConfig[t.estado] ?? estadoConfig.propuesto
                     return (
-                      <tr key={t.id} className="border-b border-[#f1f5f9]">
+                      <tr key={t.id} className="border-b border-[#F5F5F5]">
                         <td className="py-3 px-3 font-medium max-w-xs"><span className="line-clamp-2">{t.titulo}</span></td>
                         <td className="py-3 px-3">{t.tutor ?? "—"}</td>
                         <td className="py-3 px-3">{t.modalidad}</td>
@@ -177,7 +177,7 @@ export function TitulacionCrud() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button className="bg-[#1a6b3c]" onClick={handleSave}>Guardar</Button>
+            <Button className="bg-[#3C6E71]" onClick={handleSave}>Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

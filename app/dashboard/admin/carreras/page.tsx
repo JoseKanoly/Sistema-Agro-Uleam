@@ -52,29 +52,29 @@ export default function CarrerasPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Carreras</h1>
-          <p className="text-[#64748b] mt-1">Gestion de carreras universitarias</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Carreras</h1>
+          <p className="text-[#6B7280] mt-1">Gestion de carreras universitarias</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">
           <Plus className="w-4 h-4 mr-2" />Nueva carrera
         </Button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {carreras.map((c) => (
-          <Card key={c.id} className="border-[#e2e8f0]">
+          <Card key={c.id} className="border-[#D9D9D9]">
             <CardContent className="p-5">
               <div className="flex items-start justify-between mb-3">
-                <div className="w-10 h-10 rounded-xl bg-[#e8f5ee] flex items-center justify-center">
-                  <Building2 className="w-5 h-5 text-[#1a6b3c]" />
+                <div className="w-10 h-10 rounded-xl bg-[#E0EEEF] flex items-center justify-center">
+                  <Building2 className="w-5 h-5 text-[#3C6E71]" />
                 </div>
-                <Badge variant={c.estado === "activo" ? "default" : "secondary"} className={c.estado === "activo" ? "bg-[#e8f5ee] text-[#1a6b3c] hover:bg-[#e8f5ee]" : ""}>{c.estado}</Badge>
+                <Badge variant={c.estado === "activo" ? "default" : "secondary"} className={c.estado === "activo" ? "bg-[#E0EEEF] text-[#3C6E71] hover:bg-[#E0EEEF]" : ""}>{c.estado}</Badge>
               </div>
-              <p className="font-bold text-[#0f172a]">{c.nombre}</p>
-              <p className="text-sm text-[#64748b] mt-0.5">{c.siglas} &bull; {c.facultad}</p>
-              <p className="text-xs text-[#94a3b8] mt-1">Coord: {c.coordinador}</p>
+              <p className="font-bold text-[#353535]">{c.nombre}</p>
+              <p className="text-sm text-[#6B7280] mt-0.5">{c.siglas} &bull; {c.facultad}</p>
+              <p className="text-xs text-[#9CA3AF] mt-1">Coord: {c.coordinador}</p>
               <div className="flex gap-2 mt-3">
                 <Button variant="outline" size="sm" onClick={() => openEdit(c)} className="flex-1"><Pencil className="w-3.5 h-3.5 mr-1" />Editar</Button>
                 <Button variant="outline" size="sm" onClick={() => handleDelete(c.id)} className="text-red-500 hover:text-red-700"><Trash2 className="w-3.5 h-3.5" /></Button>
@@ -84,10 +84,10 @@ export default function CarrerasPage() {
         ))}
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
           <div className="relative max-w-sm">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]" />
             <Input placeholder="Buscar carrera..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" />
           </div>
         </CardHeader>
@@ -108,10 +108,10 @@ export default function CarrerasPage() {
                 <TableRow key={c.id}>
                   <TableCell className="font-medium">{c.nombre}</TableCell>
                   <TableCell><Badge variant="outline">{c.siglas}</Badge></TableCell>
-                  <TableCell className="text-[#64748b] text-sm">{c.facultad}</TableCell>
-                  <TableCell className="text-[#64748b] text-sm">{c.coordinador}</TableCell>
+                  <TableCell className="text-[#6B7280] text-sm">{c.facultad}</TableCell>
+                  <TableCell className="text-[#6B7280] text-sm">{c.coordinador}</TableCell>
                   <TableCell>
-                    <Badge className={c.estado === "activo" ? "bg-[#e8f5ee] text-[#1a6b3c] hover:bg-[#e8f5ee]" : ""}>{c.estado}</Badge>
+                    <Badge className={c.estado === "activo" ? "bg-[#E0EEEF] text-[#3C6E71] hover:bg-[#E0EEEF]" : ""}>{c.estado}</Badge>
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-1">
@@ -159,7 +159,7 @@ export default function CarrerasPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button onClick={handleSave} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">Guardar</Button>
+            <Button onClick={handleSave} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

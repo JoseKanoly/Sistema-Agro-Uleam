@@ -79,26 +79,26 @@ export default function GruposDocumentosPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Grupos de documentos</h1>
-          <p className="text-[#64748b] mt-1">
+          <h1 className="text-2xl font-bold text-[#353535]">Grupos de documentos</h1>
+          <p className="text-[#6B7280] mt-1">
             Cree grupos (SGA, etc.) con requisitos. Cada estudiante tendrá subcarpeta: Nombre_Cédula/Grupo/
           </p>
         </div>
-        <Button onClick={() => setOpen(true)} className="bg-[#1a6b3c] hover:bg-[#155730]">
+        <Button onClick={() => setOpen(true)} className="bg-[#3C6E71] hover:bg-[#2F5A5C]">
           <FolderPlus className="w-4 h-4 mr-2" />Nuevo grupo
         </Button>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         {grupos.filter((g) => g.activo).map((grupo) => (
-          <Card key={grupo.id} className="border-[#e2e8f0]">
+          <Card key={grupo.id} className="border-[#D9D9D9]">
             <CardHeader>
               <div className="flex items-start justify-between">
                 <div>
                   <CardTitle className="flex items-center gap-2">
-                    <FileStack className="w-5 h-5 text-[#1a6b3c]" />
+                    <FileStack className="w-5 h-5 text-[#3C6E71]" />
                     {grupo.nombre}
                   </CardTitle>
                   {grupo.descripcion && <CardDescription className="mt-1">{grupo.descripcion}</CardDescription>}
@@ -109,9 +109,9 @@ export default function GruposDocumentosPage() {
               </div>
             </CardHeader>
             <CardContent className="space-y-3">
-              <p className="text-xs font-medium text-[#64748b] uppercase">Requisitos / archivos</p>
+              <p className="text-xs font-medium text-[#6B7280] uppercase">Requisitos / archivos</p>
               {grupo.requisitos.map((r) => (
-                <div key={r.id} className="text-sm py-2 px-3 bg-[#f8fafc] rounded-lg border border-[#f1f5f9]">
+                <div key={r.id} className="text-sm py-2 px-3 bg-[#F5F5F5] rounded-lg border border-[#F5F5F5]">
                   {r.nombre}
                 </div>
               ))}
@@ -163,7 +163,7 @@ export default function GruposDocumentosPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button className="bg-[#1a6b3c]" disabled={loading} onClick={handleCreate}>
+            <Button className="bg-[#3C6E71]" disabled={loading} onClick={handleCreate}>
               {loading ? "Creando..." : "Crear grupo"}
             </Button>
           </DialogFooter>

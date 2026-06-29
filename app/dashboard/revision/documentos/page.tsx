@@ -14,7 +14,7 @@ type ArchivoRow = Awaited<ReturnType<typeof getArchivosPendientesRevision>>[numb
 
 const ESTADO_COLOR: Record<string, string> = {
   pendiente: "bg-yellow-100 text-yellow-700",
-  aprobado: "bg-[#e8f5ee] text-[#1a6b3c]",
+  aprobado: "bg-[#E0EEEF] text-[#3C6E71]",
   rechazado: "bg-red-100 text-red-700",
 }
 
@@ -46,39 +46,39 @@ export default function RevisionDocumentosPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6">
-        <h1 className="text-2xl font-bold text-[#0f172a]">Revisión de Documentos</h1>
-        <p className="text-[#64748b] mt-1">Aprobación de archivos subidos por estudiantes y docentes</p>
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6">
+        <h1 className="text-2xl font-bold text-[#353535]">Revisión de Documentos</h1>
+        <p className="text-[#6B7280] mt-1">Aprobación de archivos subidos por estudiantes y docentes</p>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <Clock className="w-8 h-8 text-yellow-500" />
-            <div><p className="text-xs text-[#64748b]">Pendientes</p><p className="text-2xl font-bold">{pendientes}</p></div>
+            <div><p className="text-xs text-[#6B7280]">Pendientes</p><p className="text-2xl font-bold">{pendientes}</p></div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
-            <CheckCircle2 className="w-8 h-8 text-[#22c55e]" />
-            <div><p className="text-xs text-[#64748b]">Aprobados</p><p className="text-2xl font-bold">{aprobados}</p></div>
+            <CheckCircle2 className="w-8 h-8 text-[#72c184]" />
+            <div><p className="text-xs text-[#6B7280]">Aprobados</p><p className="text-2xl font-bold">{aprobados}</p></div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <XCircle className="w-8 h-8 text-red-500" />
-            <div><p className="text-xs text-[#64748b]">Rechazados</p><p className="text-2xl font-bold">{rechazados}</p></div>
+            <div><p className="text-xs text-[#6B7280]">Rechazados</p><p className="text-2xl font-bold">{rechazados}</p></div>
           </CardContent>
         </Card>
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
           <div className="flex flex-col sm:flex-row gap-3 justify-between">
-            <CardTitle className="text-[#0f172a]">Documentos</CardTitle>
+            <CardTitle className="text-[#353535]">Documentos</CardTitle>
             <div className="flex gap-2">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94a3b8]" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9CA3AF]" />
                 <Input placeholder="Buscar..." className="pl-9 w-48" value={search} onChange={(e) => setSearch(e.target.value)} />
               </div>
               <Select value={filterEstado} onValueChange={setFilterEstado}>
@@ -107,12 +107,12 @@ export default function RevisionDocumentosPage() {
             </TableHeader>
             <TableBody>
               {filtered.length === 0 ? (
-                <TableRow><TableCell colSpan={6} className="text-center text-[#64748b] py-8">Sin documentos</TableCell></TableRow>
+                <TableRow><TableCell colSpan={6} className="text-center text-[#6B7280] py-8">Sin documentos</TableCell></TableRow>
               ) : filtered.map((d) => (
                 <TableRow key={d.id}>
                   <TableCell>
                     <p className="font-medium text-sm">{d.usuario.name}</p>
-                    <p className="text-xs text-[#64748b]">{d.usuario.email}</p>
+                    <p className="text-xs text-[#6B7280]">{d.usuario.email}</p>
                   </TableCell>
                   <TableCell>{d.nombre}</TableCell>
                   <TableCell>{d.tipo}</TableCell>
@@ -122,14 +122,14 @@ export default function RevisionDocumentosPage() {
                     </span>
                   </TableCell>
                   <TableCell>
-                    <a href={d.archivoUrl} target="_blank" rel="noreferrer" className="text-[#1a6b3c] text-sm flex items-center gap-1">
+                    <a href={d.archivoUrl} target="_blank" rel="noreferrer" className="text-[#3C6E71] text-sm flex items-center gap-1">
                       Ver <ExternalLink className="w-3 h-3" />
                     </a>
                   </TableCell>
                   <TableCell className="text-right">
                     {d.estado === "pendiente" && (
                       <div className="flex justify-end gap-1">
-                        <Button size="sm" className="bg-[#1a6b3c] h-8" onClick={() => handleEstado(d.id, "aprobado")}>Aprobar</Button>
+                        <Button size="sm" className="bg-[#3C6E71] h-8" onClick={() => handleEstado(d.id, "aprobado")}>Aprobar</Button>
                         <Button size="sm" variant="outline" className="h-8 text-red-600" onClick={() => handleEstado(d.id, "rechazado")}>Rechazar</Button>
                       </div>
                     )}

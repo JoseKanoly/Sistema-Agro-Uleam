@@ -19,7 +19,7 @@ import {
 } from "recharts"
 
 const ESTADO_COLOR: Record<Estudiante["estado"], string> = {
-  activo: "bg-[#e8f5ee] text-[#1a6b3c]",
+  activo: "bg-[#E0EEEF] text-[#3C6E71]",
   retirado: "bg-red-100 text-red-700",
   egresado: "bg-blue-100 text-blue-700",
 }
@@ -80,67 +80,67 @@ export default function EstudiantesPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Panel de Estudiantes</h1>
-          <p className="text-[#64748b] mt-1">Gestion y seguimiento academico</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Panel de Estudiantes</h1>
+          <p className="text-[#6B7280] mt-1">Gestion y seguimiento academico</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">
           <Plus className="w-4 h-4 mr-2" />Nuevo estudiante
         </Button>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
-            <GraduationCap className="w-8 h-8 text-[#1a6b3c]" />
-            <div><p className="text-xs text-[#64748b]">Total</p><p className="text-2xl font-bold text-[#0f172a]">{estudiantes.length}</p></div>
+            <GraduationCap className="w-8 h-8 text-[#3C6E71]" />
+            <div><p className="text-xs text-[#6B7280]">Total</p><p className="text-2xl font-bold text-[#353535]">{estudiantes.length}</p></div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
-            <UserCheck className="w-8 h-8 text-[#22c55e]" />
-            <div><p className="text-xs text-[#64748b]">Activos</p><p className="text-2xl font-bold text-[#0f172a]">{activos}</p></div>
+            <UserCheck className="w-8 h-8 text-[#72c184]" />
+            <div><p className="text-xs text-[#6B7280]">Activos</p><p className="text-2xl font-bold text-[#353535]">{activos}</p></div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <UserX className="w-8 h-8 text-red-500" />
-            <div><p className="text-xs text-[#64748b]">Retirados</p><p className="text-2xl font-bold text-[#0f172a]">{retirados}</p></div>
+            <div><p className="text-xs text-[#6B7280]">Retirados</p><p className="text-2xl font-bold text-[#353535]">{retirados}</p></div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <TrendingUp className="w-8 h-8 text-blue-500" />
-            <div><p className="text-xs text-[#64748b]">Promedio global</p><p className="text-2xl font-bold text-[#0f172a]">{promedioGlobal}</p></div>
+            <div><p className="text-xs text-[#6B7280]">Promedio global</p><p className="text-2xl font-bold text-[#353535]">{promedioGlobal}</p></div>
           </CardContent>
         </Card>
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
-          <CardTitle className="text-[#0f172a]">Estudiantes por carrera</CardTitle>
+          <CardTitle className="text-[#353535]">Estudiantes por carrera</CardTitle>
           <CardDescription>Activos y egresados</CardDescription>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={chartData} barGap={4}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#F5F5F5" />
               <XAxis dataKey="name" tick={{ fontSize: 12 }} />
               <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
               <Tooltip />
-              <Bar dataKey="activos" name="Activos" fill="#1a6b3c" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="egresados" name="Egresados" fill="#22c55e" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="activos" name="Activos" fill="#3C6E71" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="egresados" name="Egresados" fill="#72c184" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </CardContent>
       </Card>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
           <div className="flex flex-wrap items-center gap-3">
             <div className="relative flex-1 min-w-[200px] max-w-sm">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]" />
               <Input placeholder="Buscar estudiante..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" />
             </div>
             <Select value={filterCarrera} onValueChange={setFilterCarrera}>
@@ -180,14 +180,14 @@ export default function EstudiantesPage() {
                   <TableCell>
                     <div>
                       <p className="font-medium">{e.nombres} {e.apellidos}</p>
-                      <p className="text-xs text-[#64748b]">{e.correo}</p>
+                      <p className="text-xs text-[#6B7280]">{e.correo}</p>
                     </div>
                   </TableCell>
-                  <TableCell className="text-sm text-[#64748b]">{e.cedula}</TableCell>
+                  <TableCell className="text-sm text-[#6B7280]">{e.cedula}</TableCell>
                   <TableCell className="text-sm">{carrerasMock.find((c) => c.id === e.carreraId)?.siglas}</TableCell>
                   <TableCell className="text-center">{e.nivel}</TableCell>
                   <TableCell>
-                    <span className={`font-semibold ${e.promedio >= 8 ? "text-[#1a6b3c]" : e.promedio >= 6 ? "text-[#f59e0b]" : "text-red-600"}`}>
+                    <span className={`font-semibold ${e.promedio >= 8 ? "text-[#3C6E71]" : e.promedio >= 6 ? "text-[#D4A373]" : "text-red-600"}`}>
                       {e.promedio}
                     </span>
                   </TableCell>
@@ -256,7 +256,7 @@ export default function EstudiantesPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button onClick={handleSave} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">Guardar</Button>
+            <Button onClick={handleSave} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

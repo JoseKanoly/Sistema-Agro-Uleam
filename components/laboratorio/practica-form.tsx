@@ -18,8 +18,8 @@ type PracticaRow = typeof practicas.$inferSelect
 type LabRow = typeof laboratorios.$inferSelect
 
 const cell = "border border-black px-2"
-const headerGreen = "bg-[#c7d9a5] border border-black font-bold px-2"
-const headerBlue = "bg-[#c8d3eb] border border-black font-bold px-2"
+const headerGreen = "bg-[#B8D4C8] border border-black font-bold px-2"
+const headerBlue = "bg-[#C8D1E0] border border-black font-bold px-2"
 
 function parseJson<T>(value: string | null, fallback: T): T {
   if (!value) return fallback
@@ -272,7 +272,7 @@ export function PracticaForm({ laboratorios, docenteNombre, initial }: PracticaF
           <tr>
             <td colSpan={6} className={cell}>
               <div className="flex justify-end mb-2">
-                <Button type="button" size="sm" className="bg-green-600 hover:bg-green-700" onClick={() => setEquipos((p) => [...p, { nombre: "", cantidad: 1 }])}>
+                <Button type="button" size="sm" className="bg-[#3C6E71] hover:bg-[#2F5A5C]" onClick={() => setEquipos((p) => [...p, { nombre: "", cantidad: 1 }])}>
                   + Añadir equipo
                 </Button>
               </div>
@@ -310,7 +310,7 @@ export function PracticaForm({ laboratorios, docenteNombre, initial }: PracticaF
           <tr>
             <td colSpan={6} className={cell}>
               <div className="flex justify-end mb-2">
-                <Button type="button" size="sm" className="bg-blue-700 hover:bg-blue-800" onClick={() => setReactivos((p) => [...p, { nombre: "", cantidad: 1 }])}>
+                <Button type="button" size="sm" className="bg-[#536493] hover:bg-[#3F516E]" onClick={() => setReactivos((p) => [...p, { nombre: "", cantidad: 1 }])}>
                   + Añadir reactivo
                 </Button>
               </div>
@@ -398,7 +398,7 @@ export function PracticaForm({ laboratorios, docenteNombre, initial }: PracticaF
         <Button type="button" variant="outline" onClick={() => router.push("/dashboard/laboratorio/practicas")}>
           Cancelar
         </Button>
-        <Button type="button" className="bg-[#536493] hover:bg-[#435274] text-white" disabled={loading} onClick={handleSubmit}>
+        <Button type="button" className="bg-[#536493] hover:bg-[#3F516E] text-white" disabled={loading} onClick={handleSubmit}>
           {loading ? "Guardando..." : initial ? "Actualizar práctica" : "Guardar práctica"}
         </Button>
       </div>

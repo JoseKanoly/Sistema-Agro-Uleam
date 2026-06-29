@@ -16,7 +16,7 @@ import { toast } from "sonner"
 
 const ESTADO_COLOR: Record<InformeInvestigacion["estado"], string> = {
   pendiente: "bg-yellow-100 text-yellow-700",
-  aprobado: "bg-[#e8f5ee] text-[#1a6b3c]",
+  aprobado: "bg-[#E0EEEF] text-[#3C6E71]",
   rechazado: "bg-red-100 text-red-700",
 }
 
@@ -90,51 +90,51 @@ export default function AvancesInvestigacionPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Mis Hitos de Investigacion</h1>
-          <p className="text-[#64748b] mt-1">Avances y entregables de proyectos de investigacion</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Mis Hitos de Investigacion</h1>
+          <p className="text-[#6B7280] mt-1">Avances y entregables de proyectos de investigacion</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">
           <Plus className="w-4 h-4 mr-2" />Nuevo hito
         </Button>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <Clock className="w-8 h-8 text-yellow-500" />
             <div>
-              <p className="text-xs text-[#64748b]">Pendientes</p>
-              <p className="text-2xl font-bold text-[#0f172a]">{pendientes}</p>
+              <p className="text-xs text-[#6B7280]">Pendientes</p>
+              <p className="text-2xl font-bold text-[#353535]">{pendientes}</p>
             </div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
-            <CheckCircle2 className="w-8 h-8 text-[#22c55e]" />
+            <CheckCircle2 className="w-8 h-8 text-[#72c184]" />
             <div>
-              <p className="text-xs text-[#64748b]">Aprobados</p>
-              <p className="text-2xl font-bold text-[#0f172a]">{aprobados}</p>
+              <p className="text-xs text-[#6B7280]">Aprobados</p>
+              <p className="text-2xl font-bold text-[#353535]">{aprobados}</p>
             </div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <XCircle className="w-8 h-8 text-red-500" />
             <div>
-              <p className="text-xs text-[#64748b]">Rechazados</p>
-              <p className="text-2xl font-bold text-[#0f172a]">{rechazados}</p>
+              <p className="text-xs text-[#6B7280]">Rechazados</p>
+              <p className="text-2xl font-bold text-[#353535]">{rechazados}</p>
             </div>
           </CardContent>
         </Card>
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
           <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-sm">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]" />
               <Input
                 placeholder="Buscar por titulo o investigador..."
                 value={search}
@@ -168,15 +168,15 @@ export default function AvancesInvestigacionPage() {
             <TableBody>
               {filtered.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center text-[#64748b] py-8">
+                  <TableCell colSpan={6} className="text-center text-[#6B7280] py-8">
                     No se encontraron hitos registrados.
                   </TableCell>
                 </TableRow>
               ) : filtered.map((h) => (
                 <TableRow key={h.id}>
                   <TableCell className="font-medium max-w-[200px] truncate">{h.titulo}</TableCell>
-                  <TableCell className="text-sm text-[#64748b]">{h.investigador}</TableCell>
-                  <TableCell className="text-sm text-[#64748b]">{h.lineaInvestigacion || "—"}</TableCell>
+                  <TableCell className="text-sm text-[#6B7280]">{h.investigador}</TableCell>
+                  <TableCell className="text-sm text-[#6B7280]">{h.lineaInvestigacion || "—"}</TableCell>
                   <TableCell className="text-sm">{h.fecha}</TableCell>
                   <TableCell>
                     <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${ESTADO_COLOR[h.estado]}`}>
@@ -187,7 +187,7 @@ export default function AvancesInvestigacionPage() {
                     <div className="flex items-center justify-end gap-1">
                       {h.estado === "pendiente" && (
                         <>
-                          <Button variant="ghost" size="sm" onClick={() => handleEstado(h.id, "aprobado")} className="text-[#1a6b3c] hover:bg-[#e8f5ee]">
+                          <Button variant="ghost" size="sm" onClick={() => handleEstado(h.id, "aprobado")} className="text-[#3C6E71] hover:bg-[#E0EEEF]">
                             <CheckCircle2 className="w-4 h-4" />
                           </Button>
                           <Button variant="ghost" size="sm" onClick={() => handleEstado(h.id, "rechazado")} className="text-red-500 hover:bg-red-50">
@@ -246,7 +246,7 @@ export default function AvancesInvestigacionPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button onClick={handleSave} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">Guardar</Button>
+            <Button onClick={handleSave} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

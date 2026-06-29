@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#1a6b3c",
+  themeColor: "#3C6E71",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className="bg-[#f4f6f9]">
+    <html lang="es" className="bg-white">
       <body className={`${inter.className} antialiased`}>
         {children}
         <Toaster richColors position="top-right" />

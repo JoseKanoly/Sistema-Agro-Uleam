@@ -56,21 +56,21 @@ export default function MateriasPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Materias</h1>
-          <p className="text-[#64748b] mt-1">Plan de estudios por carrera</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Materias</h1>
+          <p className="text-[#6B7280] mt-1">Plan de estudios por carrera</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">
           <Plus className="w-4 h-4 mr-2" />Nueva materia
         </Button>
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
           <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-sm">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]" />
               <Input placeholder="Buscar materia..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" />
             </div>
             <Select value={filterCarrera} onValueChange={setFilterCarrera}>
@@ -105,16 +105,16 @@ export default function MateriasPage() {
                 <TableRow key={m.id}>
                   <TableCell><Badge variant="outline" className="font-mono text-xs">{m.codigo}</Badge></TableCell>
                   <TableCell className="font-medium">{m.nombre}</TableCell>
-                  <TableCell className="text-sm text-[#64748b]">{carrerasMock.find((c) => c.id === m.carreraId)?.siglas}</TableCell>
+                  <TableCell className="text-sm text-[#6B7280]">{carrerasMock.find((c) => c.id === m.carreraId)?.siglas}</TableCell>
                   <TableCell className="text-center">{m.nivel}</TableCell>
                   <TableCell className="text-center text-sm">{m.acd ?? 0}</TableCell>
                   <TableCell className="text-center text-sm">{m.ape ?? 0}</TableCell>
                   <TableCell className="text-center text-sm">{m.aa ?? 0}</TableCell>
                   <TableCell className="text-center text-sm font-medium">{m.horas ?? 0}</TableCell>
                   <TableCell className="text-center">{m.creditos}</TableCell>
-                  <TableCell className="text-sm text-[#64748b]">{m.docente}</TableCell>
+                  <TableCell className="text-sm text-[#6B7280]">{m.docente}</TableCell>
                   <TableCell>
-                    <Badge className={m.activa ? "bg-[#e8f5ee] text-[#1a6b3c] hover:bg-[#e8f5ee]" : "bg-gray-100 text-gray-600"}>
+                    <Badge className={m.activa ? "bg-[#E0EEEF] text-[#3C6E71] hover:bg-[#E0EEEF]" : "bg-gray-100 text-gray-600"}>
                       {m.activa ? "Activa" : "Inactiva"}
                     </Badge>
                   </TableCell>
@@ -175,7 +175,7 @@ export default function MateriasPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button onClick={handleSave} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">Guardar</Button>
+            <Button onClick={handleSave} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

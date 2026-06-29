@@ -12,9 +12,9 @@ export default async function NuevaPracticaPage() {
 
   return (
     <div className="space-y-4">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6">
-        <h1 className="text-2xl font-bold text-[#0f172a]">Nueva práctica de laboratorio</h1>
-        <p className="text-[#64748b] mt-1">Complete el registro oficial de la práctica</p>
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6">
+        <h1 className="text-2xl font-bold text-[#353535]">Nueva práctica de laboratorio</h1>
+        <p className="text-[#6B7280] mt-1">Complete el registro oficial de la práctica</p>
       </div>
       <PracticaForm laboratorios={laboratorios} docenteNombre={data.user.name} />
     </div>

@@ -84,16 +84,16 @@ export default function VinculacionPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Vinculacion con la Sociedad</h1>
-          <p className="text-[#64748b] mt-1">Proyectos de vinculacion, lideres y empresas aliadas</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Vinculacion con la Sociedad</h1>
+          <p className="text-[#6B7280] mt-1">Proyectos de vinculacion, lideres y empresas aliadas</p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline" onClick={() => setEmpresasOpen(true)} className="border-[#e2e8f0]">
+          <Button variant="outline" onClick={() => setEmpresasOpen(true)} className="border-[#D9D9D9]">
             <Building2 className="w-4 h-4 mr-2" />Empresas
           </Button>
-          <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">
+          <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">
             <Plus className="w-4 h-4 mr-2" />Nueva actividad
           </Button>
         </div>
@@ -102,16 +102,16 @@ export default function VinculacionPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: "Total actividades", value: actividades.length, color: "#1a6b3c" },
-          { label: "En progreso", value: actividades.filter((a) => a.estado === "en_progreso").length, color: "#f59e0b" },
-          { label: "Completadas", value: actividades.filter((a) => a.estado === "completado").length, color: "#22c55e" },
-          { label: "Lideres", value: lideres.length, color: "#3b82f6" },
+          { label: "Total actividades", value: actividades.length, color: "#3C6E71" },
+          { label: "En progreso", value: actividades.filter((a) => a.estado === "en_progreso").length, color: "#D4A373" },
+          { label: "Completadas", value: actividades.filter((a) => a.estado === "completado").length, color: "#72c184" },
+          { label: "Lideres", value: lideres.length, color: "#536493" },
         ].map((s) => (
-          <Card key={s.label} className="border-[#e2e8f0]">
+          <Card key={s.label} className="border-[#D9D9D9]">
             <CardContent className="p-4 flex items-center justify-between">
               <div>
-                <p className="text-xs text-[#64748b]">{s.label}</p>
-                <p className="text-2xl font-bold text-[#0f172a]">{s.value}</p>
+                <p className="text-xs text-[#6B7280]">{s.label}</p>
+                <p className="text-2xl font-bold text-[#353535]">{s.value}</p>
               </div>
               <Link2 className="w-5 h-5" style={{ color: s.color }} />
             </CardContent>
@@ -120,10 +120,10 @@ export default function VinculacionPage() {
       </div>
 
       {/* Lideres */}
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
-          <CardTitle className="text-[#0f172a] flex items-center gap-2">
-            <Users className="w-4 h-4 text-[#1a6b3c]" />Lideres de Vinculacion
+          <CardTitle className="text-[#353535] flex items-center gap-2">
+            <Users className="w-4 h-4 text-[#3C6E71]" />Lideres de Vinculacion
           </CardTitle>
         </CardHeader>
         <CardContent className="p-0">
@@ -140,9 +140,9 @@ export default function VinculacionPage() {
               {lideres.map((l) => (
                 <TableRow key={l.id}>
                   <TableCell className="font-medium">{l.nombres} {l.apellidos}</TableCell>
-                  <TableCell className="text-[#64748b] text-sm">{l.correo}</TableCell>
-                  <TableCell><span className="text-xs bg-[#e8f5ee] text-[#1a6b3c] px-2 py-0.5 rounded-full font-medium">{getCarrera(l.carreraId)}</span></TableCell>
-                  <TableCell><span className="font-semibold text-[#1a6b3c]">{l.proyectosActivos}</span></TableCell>
+                  <TableCell className="text-[#6B7280] text-sm">{l.correo}</TableCell>
+                  <TableCell><span className="text-xs bg-[#E0EEEF] text-[#3C6E71] px-2 py-0.5 rounded-full font-medium">{getCarrera(l.carreraId)}</span></TableCell>
+                  <TableCell><span className="font-semibold text-[#3C6E71]">{l.proyectosActivos}</span></TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -151,11 +151,11 @@ export default function VinculacionPage() {
       </Card>
 
       {/* Actividades */}
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
           <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-sm">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]" />
               <Input placeholder="Buscar actividad..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" />
             </div>
           </div>
@@ -178,10 +178,10 @@ export default function VinculacionPage() {
               {filtered.map((a) => (
                 <TableRow key={a.id}>
                   <TableCell className="font-medium max-w-[200px] truncate">{a.nombre}</TableCell>
-                  <TableCell className="text-sm text-[#64748b]">{getLider(a.liderId)}</TableCell>
-                  <TableCell className="text-sm text-[#64748b] max-w-[140px] truncate">{getEmpresa(a.empresaId)}</TableCell>
-                  <TableCell><span className="text-xs bg-[#e8f5ee] text-[#1a6b3c] px-2 py-0.5 rounded-full font-medium">{getCarrera(a.carreraId)}</span></TableCell>
-                  <TableCell className="text-sm text-[#64748b]">{a.fechaInicio}</TableCell>
+                  <TableCell className="text-sm text-[#6B7280]">{getLider(a.liderId)}</TableCell>
+                  <TableCell className="text-sm text-[#6B7280] max-w-[140px] truncate">{getEmpresa(a.empresaId)}</TableCell>
+                  <TableCell><span className="text-xs bg-[#E0EEEF] text-[#3C6E71] px-2 py-0.5 rounded-full font-medium">{getCarrera(a.carreraId)}</span></TableCell>
+                  <TableCell className="text-sm text-[#6B7280]">{a.fechaInicio}</TableCell>
                   <TableCell className="text-sm font-semibold">{a.beneficiarios}</TableCell>
                   <TableCell>
                     <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${ESTADO_COLOR[a.estado]}`}>
@@ -259,7 +259,7 @@ export default function VinculacionPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button className="bg-[#1a6b3c] hover:bg-[#155730] text-white" onClick={handleSave}>
+            <Button className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white" onClick={handleSave}>
               {editing ? "Guardar cambios" : "Crear actividad"}
             </Button>
           </DialogFooter>
@@ -286,10 +286,10 @@ export default function VinculacionPage() {
               {empresas.map((e) => (
                 <TableRow key={e.id}>
                   <TableCell className="font-medium">{e.nombre}</TableCell>
-                  <TableCell className="text-sm text-[#64748b]">{e.ruc}</TableCell>
-                  <TableCell className="text-sm text-[#64748b]">{e.sector}</TableCell>
-                  <TableCell className="text-sm text-[#64748b]">{e.contacto}</TableCell>
-                  <TableCell><span className="font-semibold text-[#1a6b3c]">{e.convenios}</span></TableCell>
+                  <TableCell className="text-sm text-[#6B7280]">{e.ruc}</TableCell>
+                  <TableCell className="text-sm text-[#6B7280]">{e.sector}</TableCell>
+                  <TableCell className="text-sm text-[#6B7280]">{e.contacto}</TableCell>
+                  <TableCell><span className="font-semibold text-[#3C6E71]">{e.convenios}</span></TableCell>
                 </TableRow>
               ))}
             </TableBody>

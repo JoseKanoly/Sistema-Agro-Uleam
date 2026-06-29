@@ -1,63 +1,41 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
-
 :root {
-  /* Brand: institutional deep green */
-  --background: #f4f6f9;
-  --foreground: #0f172a;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-  --popover: #ffffff;
-  --popover-foreground: #0f172a;
-  --primary: #1a6b3c;
-  --primary-foreground: #ffffff;
-  --secondary: #e8f5ee;
-  --secondary-foreground: #1a6b3c;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #f59e0b;
-  --accent-foreground: #ffffff;
+  /* SISPAA Brand Palette */
+  --background: #FFFFFF;
+  --foreground: #353535;
+  --card: #FFFFFF;
+  --card-foreground: #353535;
+  --popover: #FFFFFF;
+  --popover-foreground: #353535;
+  --primary: #3C6E71;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E0EEEF;
+  --secondary-foreground: #3C6E71;
+  --muted: #F5F5F5;
+  --muted-foreground: #6B7280;
+  --accent: #536493;
+  --accent-foreground: #FFFFFF;
   --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  --input: #ffffff;
-  --ring: #1a6b3c;
-  --chart-1: #1a6b3c;
-  --chart-2: #16a34a;
-  --chart-3: #f59e0b;
-  --chart-4: #3b82f6;
-  --chart-5: #ef4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #D9D9D9;
+  --input: #FFFFFF;
+  --ring: #3C6E71;
+  --chart-1: #3C6E71;
+  --chart-2: #72c184;
+  --chart-3: #536493;
+  --chart-4: #D4A373;
+  --chart-5: #E07A5F;
   --radius: 0.5rem;
-  --sidebar: #0f2419;
-  --sidebar-foreground: #d1fae5;
-  --sidebar-primary: #22c55e;
-  --sidebar-primary-foreground: #0f2419;
-  --sidebar-accent: #1a3d27;
-  --sidebar-accent-foreground: #d1fae5;
-  --sidebar-border: #1e3a2a;
-  --sidebar-ring: #22c55e;
-}
-
-.dark {
-  --background: #0a1628;
-  --foreground: #f1f5f9;
-  --card: #0f1e30;
-  --card-foreground: #f1f5f9;
-  --primary: #22c55e;
-  --primary-foreground: #0f2419;
-  --secondary: #1a3d27;
-  --secondary-foreground: #d1fae5;
-  --muted: #1e2d3d;
-  --muted-foreground: #94a3b8;
-  --border: #1e2d3d;
-  --input: #1e2d3d;
-  --sidebar: #060e14;
-  --sidebar-foreground: #d1fae5;
-  --sidebar-accent: #0f2419;
-  --sidebar-accent-foreground: #d1fae5;
-  --sidebar-border: #0f2419;
+  --sidebar: #353535;
+  --sidebar-foreground: #E0E0E0;
+  --sidebar-primary: #72c184;
+  --sidebar-primary-foreground: #353535;
+  --sidebar-accent: #444444;
+  --sidebar-accent-foreground: #E0E0E0;
+  --sidebar-border: #4A4A4A;
+  --sidebar-ring: #72c184;
 }
 
 @theme inline {

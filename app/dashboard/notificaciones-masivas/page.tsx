@@ -81,16 +81,16 @@ export default function NotificacionesMasivasPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6">
-        <h1 className="text-2xl font-bold text-[#0f172a]">Notificaciones Masivas</h1>
-        <p className="text-[#64748b] mt-1">Los usuarios verán las notificaciones en su bandeja</p>
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6">
+        <h1 className="text-2xl font-bold text-[#353535]">Notificaciones Masivas</h1>
+        <p className="text-[#6B7280] mt-1">Los usuarios verán las notificaciones en su bandeja</p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardHeader>
-            <CardTitle className="text-[#0f172a] flex items-center gap-2">
-              <Bell className="w-5 h-5 text-[#1a6b3c]" />
+            <CardTitle className="text-[#353535] flex items-center gap-2">
+              <Bell className="w-5 h-5 text-[#3C6E71]" />
               Nueva notificacion
             </CardTitle>
           </CardHeader>
@@ -129,33 +129,33 @@ export default function NotificacionesMasivasPage() {
                 ))}
               </div>
             </div>
-            <Button onClick={handleEnviar} disabled={loading} className="w-full bg-[#1a6b3c] hover:bg-[#155730]">
+            <Button onClick={handleEnviar} disabled={loading} className="w-full bg-[#3C6E71] hover:bg-[#2F5A5C]">
               <Send className="w-4 h-4 mr-2" />
               {loading ? "Enviando..." : "Enviar notificacion"}
             </Button>
           </CardContent>
         </Card>
 
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-[#1a6b3c]" />
+              <CheckCircle2 className="w-5 h-5 text-[#3C6E71]" />
               Historial reciente
             </CardTitle>
           </CardHeader>
           <CardContent>
             {enviadas.length === 0 ? (
-              <p className="text-sm text-[#64748b] text-center py-6">Sin envíos recientes.</p>
+              <p className="text-sm text-[#6B7280] text-center py-6">Sin envíos recientes.</p>
             ) : (
               <div className="space-y-3">
                 {enviadas.map((n, i) => (
-                  <div key={i} className="p-3 rounded-xl border border-[#e2e8f0] bg-[#f8fafc]">
+                  <div key={i} className="p-3 rounded-xl border border-[#D9D9D9] bg-[#F5F5F5]">
                     <div className="flex justify-between gap-2">
                       <p className="text-sm font-semibold">{n.titulo}</p>
                       <span className={`text-xs px-2 py-0.5 rounded-full ${TIPO_BADGE[n.tipo] ?? ""}`}>{n.tipo}</span>
                     </div>
-                    <p className="text-xs text-[#64748b] mt-1 line-clamp-2">{n.mensaje}</p>
-                    <p className="text-[10px] text-[#94a3b8] mt-2">{n.fecha}</p>
+                    <p className="text-xs text-[#6B7280] mt-1 line-clamp-2">{n.mensaje}</p>
+                    <p className="text-[10px] text-[#9CA3AF] mt-2">{n.fecha}</p>
                   </div>
                 ))}
               </div>

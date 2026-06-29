@@ -16,7 +16,7 @@ import { toast } from "sonner"
 type EstadoPeriodo = PeriodoAcademico["estado"]
 
 const ESTADO_CONFIG: Record<EstadoPeriodo, { label: string; color: string; icon: React.ElementType }> = {
-  activo: { label: "Activo", color: "bg-[#e8f5ee] text-[#1a6b3c]", icon: CheckCircle2 },
+  activo: { label: "Activo", color: "bg-[#E0EEEF] text-[#3C6E71]", icon: CheckCircle2 },
   finalizado: { label: "Finalizado", color: "bg-gray-100 text-gray-600", icon: Clock },
   planificado: { label: "Planificado", color: "bg-blue-100 text-blue-700", icon: Calendar },
 }
@@ -62,47 +62,47 @@ export default function PeriodosPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Periodos Academicos</h1>
-          <p className="text-[#64748b] mt-1">Gestion de periodos lectivos</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Periodos Academicos</h1>
+          <p className="text-[#6B7280] mt-1">Gestion de periodos lectivos</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">
           <Plus className="w-4 h-4 mr-2" />Nuevo periodo
         </Button>
       </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-3 gap-4">
-        <Card className="border-[#e2e8f0] border-l-4 border-l-[#22c55e]">
+        <Card className="border-[#D9D9D9] border-l-4 border-l-[#72c184]">
           <CardContent className="p-5">
             <div className="flex items-center gap-3">
-              <CheckCircle2 className="w-8 h-8 text-[#22c55e]" />
+              <CheckCircle2 className="w-8 h-8 text-[#72c184]" />
               <div>
-                <p className="text-xs text-[#64748b] uppercase tracking-wider">Activo</p>
-                <p className="font-bold text-[#0f172a]">{activo?.nombre ?? "Ninguno"}</p>
+                <p className="text-xs text-[#6B7280] uppercase tracking-wider">Activo</p>
+                <p className="font-bold text-[#353535]">{activo?.nombre ?? "Ninguno"}</p>
               </div>
             </div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0] border-l-4 border-l-blue-400">
+        <Card className="border-[#D9D9D9] border-l-4 border-l-blue-400">
           <CardContent className="p-5">
             <div className="flex items-center gap-3">
               <Calendar className="w-8 h-8 text-blue-400" />
               <div>
-                <p className="text-xs text-[#64748b] uppercase tracking-wider">Planificados</p>
-                <p className="text-2xl font-bold text-[#0f172a]">{planificados.length}</p>
+                <p className="text-xs text-[#6B7280] uppercase tracking-wider">Planificados</p>
+                <p className="text-2xl font-bold text-[#353535]">{planificados.length}</p>
               </div>
             </div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0] border-l-4 border-l-gray-300">
+        <Card className="border-[#D9D9D9] border-l-4 border-l-gray-300">
           <CardContent className="p-5">
             <div className="flex items-center gap-3">
               <Clock className="w-8 h-8 text-gray-400" />
               <div>
-                <p className="text-xs text-[#64748b] uppercase tracking-wider">Finalizados</p>
-                <p className="text-2xl font-bold text-[#0f172a]">{finalizados.length}</p>
+                <p className="text-xs text-[#6B7280] uppercase tracking-wider">Finalizados</p>
+                <p className="text-2xl font-bold text-[#353535]">{finalizados.length}</p>
               </div>
             </div>
           </CardContent>
@@ -115,14 +115,14 @@ export default function PeriodosPage() {
           const cfg = ESTADO_CONFIG[p.estado]
           const Icon = cfg.icon
           return (
-            <div key={p.id} className="bg-white border border-[#e2e8f0] rounded-xl p-4 flex items-center justify-between">
+            <div key={p.id} className="bg-white border border-[#D9D9D9] rounded-xl p-4 flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#e8f5ee] flex items-center justify-center">
-                  <CalendarRange className="w-5 h-5 text-[#1a6b3c]" />
+                <div className="w-10 h-10 rounded-xl bg-[#E0EEEF] flex items-center justify-center">
+                  <CalendarRange className="w-5 h-5 text-[#3C6E71]" />
                 </div>
                 <div>
-                  <p className="font-semibold text-[#0f172a]">{p.nombre}</p>
-                  <p className="text-sm text-[#64748b]">
+                  <p className="font-semibold text-[#353535]">{p.nombre}</p>
+                  <p className="text-sm text-[#6B7280]">
                     {new Date(p.fechaInicio + "T00:00:00").toLocaleDateString("es-EC", { day: "numeric", month: "short", year: "numeric" })}
                     {" — "}
                     {new Date(p.fechaFin + "T00:00:00").toLocaleDateString("es-EC", { day: "numeric", month: "short", year: "numeric" })}
@@ -173,7 +173,7 @@ export default function PeriodosPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button onClick={handleSave} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">Guardar</Button>
+            <Button onClick={handleSave} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

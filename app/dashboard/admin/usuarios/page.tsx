@@ -89,9 +89,9 @@ export default function UsuariosPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6">
-        <h1 className="text-2xl font-bold text-[#0f172a]">Usuarios del sistema</h1>
-        <p className="text-[#64748b] mt-1">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6">
+        <h1 className="text-2xl font-bold text-[#353535]">Usuarios del sistema</h1>
+        <p className="text-[#6B7280] mt-1">
           Todos los usuarios registrados aparecen aquí. Asigne roles y permisos especiales.
         </p>
       </div>
@@ -100,23 +100,23 @@ export default function UsuariosPage() {
         {ROLES.map((r) => {
           const count = usuarios.filter((u) => u.rol === r.value).length
           return (
-            <Card key={r.value} className="border-[#e2e8f0]">
+            <Card key={r.value} className="border-[#D9D9D9]">
               <CardContent className="p-4 flex items-center justify-between">
                 <div>
-                  <p className="text-xs text-[#64748b]">{r.label}</p>
-                  <p className="text-2xl font-bold text-[#0f172a]">{count}</p>
+                  <p className="text-xs text-[#6B7280]">{r.label}</p>
+                  <p className="text-2xl font-bold text-[#353535]">{count}</p>
                 </div>
-                <Users className="w-5 h-5 text-[#1a6b3c]" />
+                <Users className="w-5 h-5 text-[#3C6E71]" />
               </CardContent>
             </Card>
           )
         })}
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
           <div className="relative max-w-sm">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]" />
             <Input placeholder="Buscar por nombre, correo o rol..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" />
           </div>
         </CardHeader>
@@ -135,14 +135,14 @@ export default function UsuariosPage() {
             <TableBody>
               {filtered.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center text-[#64748b] py-8">
+                  <TableCell colSpan={6} className="text-center text-[#6B7280] py-8">
                     No hay usuarios registrados aún.
                   </TableCell>
                 </TableRow>
               ) : filtered.map((u) => (
                 <TableRow key={u.userId}>
                   <TableCell className="font-medium">{u.nombre}</TableCell>
-                  <TableCell className="text-[#64748b] text-sm">{u.email}</TableCell>
+                  <TableCell className="text-[#6B7280] text-sm">{u.email}</TableCell>
                   <TableCell>
                     <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${ROL_COLOR[u.rol]}`}>
                       {ROLES.find((r) => r.value === u.rol)?.label ?? u.rol}
@@ -161,11 +161,11 @@ export default function UsuariosPage() {
                         </Badge>
                       )}
                       {!u.esTutorTitulacion && !u.esInvestigador && (
-                        <span className="text-xs text-[#94a3b8]">—</span>
+                        <span className="text-xs text-[#9CA3AF]">—</span>
                       )}
                     </div>
                   </TableCell>
-                  <TableCell className="text-sm text-[#64748b]">
+                  <TableCell className="text-sm text-[#6B7280]">
                     {new Date(u.createdAt).toLocaleDateString("es-EC")}
                   </TableCell>
                   <TableCell className="text-right">
@@ -185,7 +185,7 @@ export default function UsuariosPage() {
           <DialogHeader>
             <DialogTitle>Asignar permisos</DialogTitle>
             {editing && (
-              <p className="text-sm text-[#64748b]">{editing.nombre} — {editing.email}</p>
+              <p className="text-sm text-[#6B7280]">{editing.nombre} — {editing.email}</p>
             )}
           </DialogHeader>
           <div className="space-y-4 py-2">
@@ -214,8 +214,8 @@ export default function UsuariosPage() {
             </div>
 
             {puedePermisosExtra && (
-              <div className="space-y-3 border border-[#e2e8f0] rounded-lg p-4 bg-[#f8fafc]">
-                <p className="text-sm font-medium text-[#0f172a]">Permisos adicionales</p>
+              <div className="space-y-3 border border-[#D9D9D9] rounded-lg p-4 bg-[#F5F5F5]">
+                <p className="text-sm font-medium text-[#353535]">Permisos adicionales</p>
                 <div className="flex items-center gap-2">
                   <Checkbox
                     id="tutor"
@@ -241,7 +241,7 @@ export default function UsuariosPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button onClick={handleSave} disabled={saving} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">
+            <Button onClick={handleSave} disabled={saving} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">
               {saving ? "Guardando..." : "Guardar permisos"}
             </Button>
           </DialogFooter>

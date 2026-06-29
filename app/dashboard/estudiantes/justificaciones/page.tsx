@@ -16,7 +16,7 @@ import { toast } from "sonner"
 
 const ESTADO_COLOR: Record<Justificacion["estado"], string> = {
   pendiente: "bg-yellow-100 text-yellow-700",
-  aprobado: "bg-[#e8f5ee] text-[#1a6b3c]",
+  aprobado: "bg-[#E0EEEF] text-[#3C6E71]",
   rechazado: "bg-red-100 text-red-700",
 }
 
@@ -92,42 +92,42 @@ export default function JustificacionesPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Justificaciones</h1>
-          <p className="text-[#64748b] mt-1">Solicitudes de justificacion de faltas</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Justificaciones</h1>
+          <p className="text-[#6B7280] mt-1">Solicitudes de justificacion de faltas</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">
           <Plus className="w-4 h-4 mr-2" />Nueva justificacion
         </Button>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <Clock className="w-8 h-8 text-yellow-500" />
-            <div><p className="text-xs text-[#64748b]">Pendientes</p><p className="text-2xl font-bold text-[#0f172a]">{pendientes}</p></div>
+            <div><p className="text-xs text-[#6B7280]">Pendientes</p><p className="text-2xl font-bold text-[#353535]">{pendientes}</p></div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
-            <CheckCircle2 className="w-8 h-8 text-[#22c55e]" />
-            <div><p className="text-xs text-[#64748b]">Aprobadas</p><p className="text-2xl font-bold text-[#0f172a]">{justificaciones.filter((j) => j.estado === "aprobado").length}</p></div>
+            <CheckCircle2 className="w-8 h-8 text-[#72c184]" />
+            <div><p className="text-xs text-[#6B7280]">Aprobadas</p><p className="text-2xl font-bold text-[#353535]">{justificaciones.filter((j) => j.estado === "aprobado").length}</p></div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <XCircle className="w-8 h-8 text-red-500" />
-            <div><p className="text-xs text-[#64748b]">Rechazadas</p><p className="text-2xl font-bold text-[#0f172a]">{justificaciones.filter((j) => j.estado === "rechazado").length}</p></div>
+            <div><p className="text-xs text-[#6B7280]">Rechazadas</p><p className="text-2xl font-bold text-[#353535]">{justificaciones.filter((j) => j.estado === "rechazado").length}</p></div>
           </CardContent>
         </Card>
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
           <div className="flex items-center gap-3">
             <div className="relative flex-1 max-w-sm">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]" />
               <Input placeholder="Buscar estudiante o motivo..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" />
             </div>
             <Select value={filterEstado} onValueChange={setFilterEstado}>
@@ -158,7 +158,7 @@ export default function JustificacionesPage() {
                 return (
                   <TableRow key={j.id}>
                     <TableCell className="font-medium">{est ? `${est.nombres} ${est.apellidos}` : `Est. ${j.estudianteId}`}</TableCell>
-                    <TableCell className="text-sm text-[#64748b] max-w-[200px] truncate">{j.motivo}</TableCell>
+                    <TableCell className="text-sm text-[#6B7280] max-w-[200px] truncate">{j.motivo}</TableCell>
                     <TableCell className="text-sm">{j.fecha}</TableCell>
                     <TableCell>
                       <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${ESTADO_COLOR[j.estado]}`}>{j.estado}</span>
@@ -167,7 +167,7 @@ export default function JustificacionesPage() {
                       <div className="flex items-center justify-end gap-1">
                         {j.estado === "pendiente" && (
                           <>
-                            <Button variant="ghost" size="sm" onClick={() => handleEstado(j.id, "aprobado")} className="text-[#1a6b3c] hover:bg-[#e8f5ee]"><CheckCircle2 className="w-4 h-4" /></Button>
+                            <Button variant="ghost" size="sm" onClick={() => handleEstado(j.id, "aprobado")} className="text-[#3C6E71] hover:bg-[#E0EEEF]"><CheckCircle2 className="w-4 h-4" /></Button>
                             <Button variant="ghost" size="sm" onClick={() => handleEstado(j.id, "rechazado")} className="text-red-500 hover:bg-red-50"><XCircle className="w-4 h-4" /></Button>
                           </>
                         )}
@@ -225,7 +225,7 @@ export default function JustificacionesPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button onClick={handleSave} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">Guardar</Button>
+            <Button onClick={handleSave} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

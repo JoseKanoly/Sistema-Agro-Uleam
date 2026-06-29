@@ -22,7 +22,7 @@ import type { convocatorias } from "@/lib/db/schema"
 type Convocatoria = typeof convocatorias.$inferSelect
 
 const ESTADO_COLORS: Record<string, string> = {
-  activa: "bg-[#e8f5ee] text-[#1a6b3c]",
+  activa: "bg-[#E0EEEF] text-[#3C6E71]",
   cerrada: "bg-gray-100 text-gray-600",
   proxima: "bg-blue-50 text-blue-700",
 }
@@ -95,34 +95,34 @@ export default function FechasLimitePage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Convocatorias y Eventos</h1>
-          <p className="text-[#64748b] mt-1">Cree ventanas para que docentes y estudiantes suban documentos</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Convocatorias y Eventos</h1>
+          <p className="text-[#6B7280] mt-1">Cree ventanas para que docentes y estudiantes suban documentos</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730]">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C]">
           <Plus className="w-4 h-4 mr-2" />Nueva convocatoria
         </Button>
       </div>
 
       <div className="grid grid-cols-3 gap-4">
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
-            <CalendarCheck className="w-8 h-8 text-[#1a6b3c]" />
-            <div><p className="text-xs text-[#64748b]">Activas</p><p className="text-2xl font-bold">{activas}</p></div>
+            <CalendarCheck className="w-8 h-8 text-[#3C6E71]" />
+            <div><p className="text-xs text-[#6B7280]">Activas</p><p className="text-2xl font-bold">{activas}</p></div>
           </CardContent>
         </Card>
-        <Card className="border-[#e2e8f0]">
+        <Card className="border-[#D9D9D9]">
           <CardContent className="p-5 flex items-center gap-4">
             <Clock className="w-8 h-8 text-blue-500" />
-            <div><p className="text-xs text-[#64748b]">Total</p><p className="text-2xl font-bold">{convocatorias.length}</p></div>
+            <div><p className="text-xs text-[#6B7280]">Total</p><p className="text-2xl font-bold">{convocatorias.length}</p></div>
           </CardContent>
         </Card>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
         {convocatorias.map((c) => (
-          <Card key={c.id} className="border-[#e2e8f0]">
+          <Card key={c.id} className="border-[#D9D9D9]">
             <CardHeader className="pb-2">
               <div className="flex items-start justify-between">
                 <CardTitle className="text-base">{c.titulo}</CardTitle>
@@ -130,9 +130,9 @@ export default function FechasLimitePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-[#64748b] mb-2">{c.modulo} — {c.tipoDocumento}</p>
-              <p className="text-xs text-[#94a3b8]">{c.fechaInicio} → {c.fechaFin}</p>
-              {c.descripcion && <p className="text-xs text-[#64748b] mt-2">{c.descripcion}</p>}
+              <p className="text-sm text-[#6B7280] mb-2">{c.modulo} — {c.tipoDocumento}</p>
+              <p className="text-xs text-[#9CA3AF]">{c.fechaInicio} → {c.fechaFin}</p>
+              {c.descripcion && <p className="text-xs text-[#6B7280] mt-2">{c.descripcion}</p>}
               <div className="flex gap-2 mt-4">
                 <Button variant="outline" size="sm" onClick={() => openEdit(c)}><Pencil className="w-3.5 h-3.5 mr-1" />Editar</Button>
                 <Button variant="outline" size="sm" className="text-red-500" onClick={() => handleDelete(c.id)}><Trash2 className="w-3.5 h-3.5" /></Button>
@@ -179,7 +179,7 @@ export default function FechasLimitePage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button className="bg-[#1a6b3c]" onClick={handleSave}>Guardar</Button>
+            <Button className="bg-[#3C6E71]" onClick={handleSave}>Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

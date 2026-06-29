@@ -18,7 +18,7 @@ import { toast } from "sonner"
 
 const ESTADO_COLOR: Record<Matricula["estado"], string> = {
   matriculado: "bg-blue-100 text-blue-700",
-  aprobado: "bg-[#e8f5ee] text-[#1a6b3c]",
+  aprobado: "bg-[#E0EEEF] text-[#3C6E71]",
   reprobado: "bg-red-100 text-red-700",
   retirado: "bg-gray-100 text-gray-600",
 }
@@ -68,31 +68,31 @@ export default function MatriculadosPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Matriculados</h1>
-          <p className="text-[#64748b] mt-1">Registro de matriculas por materia y periodo</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Matriculados</h1>
+          <p className="text-[#6B7280] mt-1">Registro de matriculas por materia y periodo</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">
           <Plus className="w-4 h-4 mr-2" />Nueva matricula
         </Button>
       </div>
 
       <div className="grid grid-cols-4 gap-4">
         {(["matriculado", "aprobado", "reprobado", "retirado"] as Matricula["estado"][]).map((estado) => (
-          <Card key={estado} className="border-[#e2e8f0]">
+          <Card key={estado} className="border-[#D9D9D9]">
             <CardContent className="p-4">
-              <p className="text-xs text-[#64748b] capitalize">{estado}</p>
-              <p className="text-2xl font-bold text-[#0f172a]">{matriculas.filter((m) => m.estado === estado).length}</p>
+              <p className="text-xs text-[#6B7280] capitalize">{estado}</p>
+              <p className="text-2xl font-bold text-[#353535]">{matriculas.filter((m) => m.estado === estado).length}</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
           <div className="relative max-w-sm">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#64748b]" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B7280]" />
             <Input placeholder="Buscar estudiante o materia..." value={search} onChange={(e) => setSearch(e.target.value)} className="pl-9" />
           </div>
         </CardHeader>
@@ -116,10 +116,10 @@ export default function MatriculadosPage() {
                 return (
                   <TableRow key={m.id}>
                     <TableCell className="font-medium">{est ? `${est.nombres} ${est.apellidos}` : `Est. ${m.estudianteId}`}</TableCell>
-                    <TableCell className="text-sm text-[#64748b]">{materia?.nombre ?? `Materia ${m.materiaId}`}</TableCell>
-                    <TableCell className="text-sm text-[#64748b]">{periodo?.nombre ?? `Periodo ${m.periodoId}`}</TableCell>
+                    <TableCell className="text-sm text-[#6B7280]">{materia?.nombre ?? `Materia ${m.materiaId}`}</TableCell>
+                    <TableCell className="text-sm text-[#6B7280]">{periodo?.nombre ?? `Periodo ${m.periodoId}`}</TableCell>
                     <TableCell>
-                      <span className={`font-semibold ${m.nota >= 7 ? "text-[#1a6b3c]" : "text-red-600"}`}>{m.nota}</span>
+                      <span className={`font-semibold ${m.nota >= 7 ? "text-[#3C6E71]" : "text-red-600"}`}>{m.nota}</span>
                     </TableCell>
                     <TableCell>
                       <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${ESTADO_COLOR[m.estado]}`}>{m.estado}</span>
@@ -182,7 +182,7 @@ export default function MatriculadosPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button onClick={handleSave} className="bg-[#1a6b3c] hover:bg-[#155730] text-white">Guardar</Button>
+            <Button onClick={handleSave} className="bg-[#3C6E71] hover:bg-[#2F5A5C] text-white">Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

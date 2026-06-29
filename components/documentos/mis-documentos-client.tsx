@@ -97,26 +97,26 @@ export function MisDocumentosClient() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6">
-        <h1 className="text-2xl font-bold text-[#0f172a]">Mis Documentos</h1>
-        <p className="text-[#64748b] mt-1">
-          Carpeta personal: <span className="font-medium text-[#0f172a]">{folderName ?? userName}</span>
-          {cedula && <span className="text-[#64748b]"> · Cédula {cedula}</span>}
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6">
+        <h1 className="text-2xl font-bold text-[#353535]">Mis Documentos</h1>
+        <p className="text-[#6B7280] mt-1">
+          Carpeta personal: <span className="font-medium text-[#353535]">{folderName ?? userName}</span>
+          {cedula && <span className="text-[#6B7280]"> · Cédula {cedula}</span>}
         </p>
       </div>
 
       {grupos.length === 0 ? (
-        <Card className="border-[#e2e8f0]">
-          <CardContent className="py-12 text-center text-[#64748b]">
+        <Card className="border-[#D9D9D9]">
+          <CardContent className="py-12 text-center text-[#6B7280]">
             No hay grupos de documentos activos. El administrador debe crear grupos (ej. SGA).
           </CardContent>
         </Card>
       ) : (
         grupos.map((grupo) => (
-          <Card key={grupo.id} className="border-[#e2e8f0]">
+          <Card key={grupo.id} className="border-[#D9D9D9]">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-[#0f172a]">
-                <FolderOpen className="w-5 h-5 text-[#1a6b3c]" />
+              <CardTitle className="flex items-center gap-2 text-[#353535]">
+                <FolderOpen className="w-5 h-5 text-[#3C6E71]" />
                 {grupo.nombre}
               </CardTitle>
               <CardDescription>
@@ -130,13 +130,13 @@ export function MisDocumentosClient() {
                 return (
                   <div
                     key={req.id}
-                    className="flex items-center justify-between gap-4 p-4 rounded-xl border border-[#e2e8f0] bg-[#f8fafc]"
+                    className="flex items-center justify-between gap-4 p-4 rounded-xl border border-[#D9D9D9] bg-[#F5F5F5]"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <FileText className="w-5 h-5 text-[#1a6b3c] shrink-0" />
+                      <FileText className="w-5 h-5 text-[#3C6E71] shrink-0" />
                       <div className="min-w-0">
-                        <p className="font-medium text-[#0f172a] truncate">{req.nombre}</p>
-                        <p className="text-xs text-[#64748b] flex items-center gap-1">
+                        <p className="font-medium text-[#353535] truncate">{req.nombre}</p>
+                        <p className="text-xs text-[#6B7280] flex items-center gap-1">
                           <span>{folderName ?? userName}</span>
                           <ChevronRight className="w-3 h-3" />
                           <span>{grupo.nombre}</span>
@@ -151,7 +151,7 @@ export function MisDocumentosClient() {
                             href={archivo.archivoUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="text-[#1a6b3c] text-sm flex items-center gap-1"
+                            className="text-[#3C6E71] text-sm flex items-center gap-1"
                           >
                             Ver <ExternalLink className="w-3 h-3" />
                           </a>
@@ -162,7 +162,7 @@ export function MisDocumentosClient() {
                           size="sm"
                           variant="outline"
                           onClick={() => openUpload(grupo, req)}
-                          className="border-[#1a6b3c] text-[#1a6b3c]"
+                          className="border-[#3C6E71] text-[#3C6E71]"
                         >
                           <Upload className="w-3.5 h-3.5 mr-1" />
                           {archivo ? "Reemplazar" : "Subir"}
@@ -184,13 +184,13 @@ export function MisDocumentosClient() {
               Subir: {selectedRequisito?.nombre}
             </DialogTitle>
           </DialogHeader>
-          <p className="text-sm text-[#64748b]">
+          <p className="text-sm text-[#6B7280]">
             Se guardará en: {folderName}/{selectedGrupo?.nombre}/
           </p>
           <input ref={fileRef} type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" className="w-full text-sm" />
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button className="bg-[#1a6b3c]" disabled={uploading} onClick={handleUpload}>
+            <Button className="bg-[#3C6E71]" disabled={uploading} onClick={handleUpload}>
               {uploading ? "Subiendo..." : "Subir archivo"}
             </Button>
           </DialogFooter>

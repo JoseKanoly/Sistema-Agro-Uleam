@@ -32,9 +32,9 @@ const tipoIcon: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 const tipoColor: Record<string, string> = {
-  info: "#3b82f6",
-  success: "#22c55e",
-  warning: "#f59e0b",
+  info: "#536493",
+  success: "#72c184",
+  warning: "#D4A373",
   error: "#ef4444",
 }
 
@@ -77,11 +77,11 @@ export default function NotificacionesPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-[#0f172a]">Notificaciones</h1>
-            <p className="text-[#64748b] mt-1">
+            <h1 className="text-2xl font-bold text-[#353535]">Notificaciones</h1>
+            <p className="text-[#6B7280] mt-1">
               {loading
                 ? "Cargando..."
                 : unread > 0
@@ -106,15 +106,15 @@ export default function NotificacionesPage() {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: "Total", value: notifs.length, color: "#1a6b3c" },
-          { label: "Sin leer", value: unread, color: "#3b82f6" },
-          { label: "Leidas", value: notifs.length - unread, color: "#22c55e" },
-          { label: "Alertas", value: notifs.filter((n) => n.tipo === "warning" || n.tipo === "error").length, color: "#f59e0b" },
+          { label: "Total", value: notifs.length, color: "#3C6E71" },
+          { label: "Sin leer", value: unread, color: "#536493" },
+          { label: "Leidas", value: notifs.length - unread, color: "#72c184" },
+          { label: "Alertas", value: notifs.filter((n) => n.tipo === "warning" || n.tipo === "error").length, color: "#D4A373" },
         ].map(({ label, value, color }) => (
-          <Card key={label} className="border-[#e2e8f0]">
+          <Card key={label} className="border-[#D9D9D9]">
             <CardContent className="p-5">
-              <p className="text-xs font-medium text-[#64748b] uppercase tracking-wider">{label}</p>
-              <p className="text-3xl font-bold text-[#0f172a] mt-1" style={{ color: value > 0 ? color : undefined }}>
+              <p className="text-xs font-medium text-[#6B7280] uppercase tracking-wider">{label}</p>
+              <p className="text-3xl font-bold text-[#353535] mt-1" style={{ color: value > 0 ? color : undefined }}>
                 {loading ? "—" : value}
               </p>
             </CardContent>
@@ -122,22 +122,22 @@ export default function NotificacionesPage() {
         ))}
       </div>
 
-      <Card className="border-[#e2e8f0]">
+      <Card className="border-[#D9D9D9]">
         <CardHeader>
-          <CardTitle className="text-[#0f172a]">Centro de notificaciones</CardTitle>
+          <CardTitle className="text-[#353535]">Centro de notificaciones</CardTitle>
           <CardDescription>Actividad reciente del sistema</CardDescription>
         </CardHeader>
         <CardContent>
           {loading ? (
             <div className="py-12 text-center">
-              <Loader2 className="w-8 h-8 text-[#1a6b3c] animate-spin mx-auto mb-3" />
-              <p className="text-[#64748b] text-sm">Cargando notificaciones...</p>
+              <Loader2 className="w-8 h-8 text-[#3C6E71] animate-spin mx-auto mb-3" />
+              <p className="text-[#6B7280] text-sm">Cargando notificaciones...</p>
             </div>
           ) : notifs.length === 0 ? (
             <div className="py-12 text-center">
               <Bell className="w-10 h-10 text-[#cbd5e1] mx-auto mb-3" />
               <p className="text-[#475569] font-medium">No tienes notificaciones.</p>
-              <p className="text-[#94a3b8] text-sm mt-1">
+              <p className="text-[#9CA3AF] text-sm mt-1">
                 Las notificaciones del sistema apareceran aqui.
               </p>
             </div>
@@ -146,12 +146,12 @@ export default function NotificacionesPage() {
               {notifs.map((n) => {
                 const tipo = tipoMap[n.tipo] ?? n.tipo
                 const Icon = tipoIcon[tipo] ?? Info
-                const color = tipoColor[tipo] ?? "#3b82f6"
+                const color = tipoColor[tipo] ?? "#536493"
                 return (
                   <div
                     key={n.id}
                     className={`flex items-start gap-4 p-4 rounded-xl border transition-colors cursor-pointer ${
-                      n.leida ? "border-[#f1f5f9] bg-white" : "border-[#dbeafe] bg-[#eff6ff]"
+                      n.leida ? "border-[#F5F5F5] bg-white" : "border-[#dbeafe] bg-[#eff6ff]"
                     }`}
                     onClick={() => !n.leida && handleMarkRead(n.id)}
                     role="button"
@@ -167,17 +167,17 @@ export default function NotificacionesPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-start justify-between gap-2">
-                        <p className={`text-sm font-semibold ${n.leida ? "text-[#475569]" : "text-[#0f172a]"}`}>
+                        <p className={`text-sm font-semibold ${n.leida ? "text-[#475569]" : "text-[#353535]"}`}>
                           {n.titulo}
                         </p>
                         <div className="flex items-center gap-2 shrink-0">
-                          <span className="text-xs text-[#94a3b8]">{timeAgo(n.createdAt)}</span>
+                          <span className="text-xs text-[#9CA3AF]">{timeAgo(n.createdAt)}</span>
                           {!n.leida && (
-                            <div className="w-2 h-2 rounded-full bg-[#3b82f6]" aria-label="No leida" />
+                            <div className="w-2 h-2 rounded-full bg-[#536493]" aria-label="No leida" />
                           )}
                         </div>
                       </div>
-                      <p className={`text-xs mt-0.5 leading-relaxed ${n.leida ? "text-[#94a3b8]" : "text-[#64748b]"}`}>
+                      <p className={`text-xs mt-0.5 leading-relaxed ${n.leida ? "text-[#9CA3AF]" : "text-[#6B7280]"}`}>
                         {n.mensaje}
                       </p>
                     </div>

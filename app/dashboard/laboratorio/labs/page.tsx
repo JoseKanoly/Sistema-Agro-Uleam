@@ -62,37 +62,37 @@ export default function LabsCrudPage() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white border border-[#e2e8f0] rounded-2xl p-6 flex items-center justify-between">
+      <div className="bg-white border border-[#D9D9D9] rounded-2xl p-6 flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[#0f172a]">Laboratorios</h1>
-          <p className="text-[#64748b] mt-1">Crear, editar y eliminar espacios de práctica</p>
+          <h1 className="text-2xl font-bold text-[#353535]">Laboratorios</h1>
+          <p className="text-[#6B7280] mt-1">Crear, editar y eliminar espacios de práctica</p>
         </div>
-        <Button onClick={openCreate} className="bg-[#1a6b3c] hover:bg-[#155730]">
+        <Button onClick={openCreate} className="bg-[#3C6E71] hover:bg-[#2F5A5C]">
           <Plus className="w-4 h-4 mr-2" />Nuevo laboratorio
         </Button>
       </div>
 
       {labs.length === 0 ? (
-        <Card className="border-[#e2e8f0]"><CardContent className="p-12 text-center text-[#64748b]">No hay laboratorios. Cree el primero.</CardContent></Card>
+        <Card className="border-[#D9D9D9]"><CardContent className="p-12 text-center text-[#6B7280]">No hay laboratorios. Cree el primero.</CardContent></Card>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {labs.map((lab) => (
-            <Card key={lab.id} className="border-[#e2e8f0]">
+            <Card key={lab.id} className="border-[#D9D9D9]">
               <CardContent className="p-5">
                 <div className="flex items-start justify-between mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#e8f5ee] flex items-center justify-center">
-                    <FlaskConical className="w-5 h-5 text-[#1a6b3c]" />
+                  <div className="w-10 h-10 rounded-xl bg-[#E0EEEF] flex items-center justify-center">
+                    <FlaskConical className="w-5 h-5 text-[#3C6E71]" />
                   </div>
                   <Badge variant={lab.estado === "activo" ? "default" : "secondary"}>{lab.estado}</Badge>
                 </div>
-                <h3 className="font-semibold text-[#0f172a] mb-2">{lab.nombre}</h3>
+                <h3 className="font-semibold text-[#353535] mb-2">{lab.nombre}</h3>
                 {lab.ubicacion && (
-                  <p className="text-xs text-[#64748b] flex items-center gap-1 mb-1"><MapPin className="w-3 h-3" />{lab.ubicacion}</p>
+                  <p className="text-xs text-[#6B7280] flex items-center gap-1 mb-1"><MapPin className="w-3 h-3" />{lab.ubicacion}</p>
                 )}
                 {lab.responsable && (
-                  <p className="text-xs text-[#64748b] flex items-center gap-1 mb-2"><User className="w-3 h-3" />{lab.responsable}</p>
+                  <p className="text-xs text-[#6B7280] flex items-center gap-1 mb-2"><User className="w-3 h-3" />{lab.responsable}</p>
                 )}
-                <p className="text-xs text-[#94a3b8] mb-3">Capacidad: {lab.capacidad}</p>
+                <p className="text-xs text-[#9CA3AF] mb-3">Capacidad: {lab.capacidad}</p>
                 <div className="flex gap-2">
                   <Button variant="outline" size="sm" className="flex-1" onClick={() => openEdit(lab)}><Pencil className="w-3.5 h-3.5 mr-1" />Editar</Button>
                   <Button variant="outline" size="sm" className="text-red-500" onClick={() => handleDelete(lab.id)}><Trash2 className="w-3.5 h-3.5" /></Button>
@@ -124,7 +124,7 @@ export default function LabsCrudPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
-            <Button className="bg-[#1a6b3c]" onClick={handleSave}>Guardar</Button>
+            <Button className="bg-[#3C6E71]" onClick={handleSave}>Guardar</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
