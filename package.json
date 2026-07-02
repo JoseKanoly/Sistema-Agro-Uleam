@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "db:setup": "node --env-file=.env.local scripts/setup-db.mjs",
-    "db:migrate": "node --env-file=.env.local scripts/migrate-v2.mjs && node --env-file=.env.local scripts/migrate-v3.mjs && node --env-file=.env.local scripts/migrate-v5.mjs",
+    "db:migrate": "node --env-file=.env.local scripts/migrate-v2.mjs && node --env-file=.env.local scripts/migrate-v3.mjs && node --env-file=.env.local scripts/migrate-v5.mjs && node --env-file=.env.local scripts/migrate-v6.mjs",
     "db:seed-carreras": "node --env-file=.env.local scripts/migrate-v4.mjs",
     "db:build-mallas": "python scripts/build_malla_seed.py",
     "db:seed": "npx tsx --env-file=.env.local scripts/create-test-users.ts"

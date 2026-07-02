@@ -165,7 +165,7 @@ export const proyectosVinculacion = pgTable('proyectos_vinculacion', {
   id: serial('id').primaryKey(),
   userId: text('userId').notNull(),
   liderUserId: text('lideruserid'),
-  empresaId: integer('empresanombre'),
+  empresaId: integer('empresaid'),
   nombre: text('nombre').notNull(),
   beneficiarios: integer('beneficiarios')
     .notNull()

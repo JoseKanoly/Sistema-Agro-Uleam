@@ -80,7 +80,9 @@ export default function VinculacionPage() {
           apellidos: "",
           correo: u.correo,
           carreraId: 1,
-          proyectosActivos: 0,
+          proyectosActivos: proyectosRows.filter(
+            (p) => Number(p.liderUserId) === index + 1
+          ).length,
         }))
       )
 
@@ -88,7 +90,9 @@ export default function VinculacionPage() {
         proyectosRows.map((p) => ({
           id: p.id,
           nombre: p.nombre,
-          liderId: 1,
+          liderId: p.liderUserId
+            ? Number(p.liderUserId)
+            : 1,
           empresaId: p.empresaId ?? 1,
           carreraId: p.carreraId ?? 1,
           fechaInicio: p.fechaInicio ?? "",
@@ -121,6 +125,7 @@ export default function VinculacionPage() {
     if (editing) {
       const updatedDb = await updateProyectoVinculacion(editing.id, {
         nombre: form.nombre,
+        liderUserId: String(form.liderId),
         empresaId: form.empresaId,
         beneficiarios: form.beneficiarios,
         carreraId: form.carreraId,
@@ -144,6 +149,7 @@ export default function VinculacionPage() {
     } else {
       const createdDb = await createProyectoVinculacion({
         nombre: form.nombre,
+        liderUserId: String(form.liderId),
         empresaId: form.empresaId,
         beneficiarios: form.beneficiarios,
         carreraId: form.carreraId,
