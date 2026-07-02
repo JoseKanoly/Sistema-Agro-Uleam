@@ -1,10 +1,15 @@
 'use server'
 
 import { db } from '@/lib/db'
-import { temasTitulacion } from '@/lib/db/schema'
+import { temasTitulacion, carreras } from '@/lib/db/schema'
 import { eq, desc } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import { getUserId } from './auth'
+
+/** Devuelve todas las carreras activas (sin restricción de rol) */
+export async function getCarreras() {
+  return db.select().from(carreras).where(eq(carreras.activa, true)).orderBy(carreras.nombre)
+}
 
 export type TemaTitulacionInput = {
   titulo: string

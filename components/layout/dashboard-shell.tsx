@@ -92,7 +92,7 @@ export function DashboardShell({ children, rol, userName, userEmail, esInvestiga
           </div>
         </header>
 
-        <div className="max-w-7xl mx-auto px-4 pt-2 pb-4 sm:px-6 sm:pt-3 sm:pb-6 lg:px-8 lg:pt-4 lg:pb-8">
+        <div className="w-full px-4 pt-2 pb-4 sm:px-6 sm:pt-3 sm:pb-6 lg:px-8 lg:pt-4 lg:pb-8">
           {children}
         </div>
       </main>

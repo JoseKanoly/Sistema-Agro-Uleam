@@ -154,7 +154,7 @@ interface IndicatorCardProps {
 
 function IndicatorCard({ title, mainValue, mainLabel, iconBg, icon: Icon, details }: IndicatorCardProps) {
   return (
-    <div className="overflow-hidden rounded-xl border border-[#D9D9D9] bg-white transition-shadow hover:shadow-md">
+    <div className="overflow-hidden rounded-xl border border-[#D9D9D9] bg-[#D9D9D9] transition-shadow hover:shadow-md">
       {/* Top section */}
       <div className="flex items-start justify-between p-6 pb-4">
         <div className="flex-1">
@@ -167,7 +167,7 @@ function IndicatorCard({ title, mainValue, mainLabel, iconBg, icon: Icon, detail
         </div>
       </div>
       {/* Divider + details */}
-      <div className="border-t border-[#D9D9D9]/60 bg-gray-50/50 px-6 py-4">
+      <div className="border-none bg-[#D9D9D9] px-6 py-4">
         <div className="space-y-2">
           {details.map((d, i) => (
             <div key={i} className="flex items-center justify-between text-sm">
@@ -184,7 +184,7 @@ function IndicatorCard({ title, mainValue, mainLabel, iconBg, icon: Icon, detail
 // ---------- Small stat card (for students/professor view) ----------
 function SmallStatCard({ label, value, icon: Icon, color }: { label: string; value: number; icon: React.ElementType; color: string }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-[#D9D9D9] bg-white p-5">
+    <div className="overflow-hidden rounded-xl border border-[#D9D9D9] bg-[#D9D9D9] p-5">
       <div className="flex items-start justify-between">
         <div>
           <p className="text-xs font-medium uppercase tracking-wider text-[#6B7280]">{label}</p>

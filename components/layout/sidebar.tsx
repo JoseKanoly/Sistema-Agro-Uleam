@@ -73,7 +73,6 @@ const navItems: NavItem[] = [
       { label: "Docentes", href: "/dashboard/coordinacion/docentes" },
       { label: "Estudiantes", href: "/dashboard/coordinacion/estudiantes" },
       { label: "Matriculas", href: "/dashboard/coordinacion/matriculas" },
-      { label: "Titulacion", href: "/dashboard/titulacion" },
     ],
   },
 
