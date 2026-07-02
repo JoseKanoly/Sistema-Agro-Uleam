@@ -164,12 +164,31 @@ export const documentosEstudiante = pgTable('documentos_estudiante', {
 export const proyectosVinculacion = pgTable('proyectos_vinculacion', {
   id: serial('id').primaryKey(),
   userId: text('userId').notNull(),
+  liderUserId: text('lideruserid'),
+  empresaId: integer('empresanombre'),
   nombre: text('nombre').notNull(),
+  beneficiarios: integer('beneficiarios')
+    .notNull()
+    .default(0),
   carreraId: integer('carreraId'),
-  estado: text('estado').notNull().default('programada'),
+  estado: text('estado')
+    .notNull()
+    .default('programada'),
   fechaInicio: text('fechaInicio'),
   fechaFin: text('fechaFin'),
-  createdAt: timestamp('createdAt').notNull().defaultNow(),
+  createdAt: timestamp('createdAt')
+    .notNull()
+    .defaultNow(),
+})
+
+export const empresasVinculacion = pgTable('empresas_vinculacion', {
+  id: serial('id').primaryKey(),
+  nombre: text('nombre').notNull(),
+  ruc: text('ruc'),
+  sector: text('sector'),
+  contacto: text('contacto'),
+  telefono: text('telefono'),
+  createdAt: timestamp('createdat').defaultNow(),
 })
 
 export const proyectosInvestigacion = pgTable('proyectos_investigacion', {

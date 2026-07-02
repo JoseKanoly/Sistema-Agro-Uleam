@@ -2,10 +2,17 @@
 
 import { useState, useEffect } from "react"
 import {
-  ActividadVinculacionService,
-  LiderVinculacionService,
-  EmpresaVinculacionService,
-} from "@/lib/services"
+  getProyectosVinculacion,
+  createProyectoVinculacion,
+  updateProyectoVinculacion,
+  deleteProyectoVinculacion,
+} from "@/app/actions/vinculacion"
+import {
+  getEmpresasVinculacion,
+  createEmpresaVinculacion,
+} from "@/app/actions/empresas-vinculacion"
+import { getLideresVinculacion } from "@/app/actions/lideres-vinculacion"
+
 import type { ActividadVinculacion, LiderVinculacion, EmpresaVinculacion } from "@/lib/types/database"
 import { carrerasMock } from "@/lib/mock/carreras"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -40,11 +47,58 @@ export default function VinculacionPage() {
   const [empresasOpen, setEmpresasOpen] = useState(false)
   const [editing, setEditing] = useState<ActividadVinculacion | null>(null)
   const [form, setForm] = useState<Omit<ActividadVinculacion, "id">>(emptyActividad)
+  const [empresaForm, setEmpresaForm] = useState({
+    nombre: "",
+    ruc: "",
+    sector: "",
+    contacto: "",
+    telefono: "",
+  })
 
   useEffect(() => {
-    ActividadVinculacionService.getAll().then(setActividades)
-    LiderVinculacionService.getAll().then(setLideres)
-    EmpresaVinculacionService.getAll().then(setEmpresas)
+    Promise.all([
+      getProyectosVinculacion(),
+      getEmpresasVinculacion(),
+      getLideresVinculacion()
+    ]).then(([proyectosRows, empresasRows, lideresRows]) => {
+
+      setEmpresas(
+        empresasRows.map((e) => ({
+          id: e.id,
+          nombre: e.nombre,
+          ruc: e.ruc ?? "",
+          sector: e.sector ?? "",
+          contacto: e.contacto ?? "",
+          telefono: e.telefono ?? "",
+          convenios: 0,
+        }))
+      )
+      setLideres(
+        lideresRows.map((u, index) => ({
+          id: index + 1,
+          nombres: u.nombre,
+          apellidos: "",
+          correo: u.correo,
+          carreraId: 1,
+          proyectosActivos: 0,
+        }))
+      )
+
+      const proyectos: ActividadVinculacion[] =
+        proyectosRows.map((p) => ({
+          id: p.id,
+          nombre: p.nombre,
+          liderId: 1,
+          empresaId: p.empresaId ?? 1,
+          carreraId: p.carreraId ?? 1,
+          fechaInicio: p.fechaInicio ?? "",
+          fechaFin: p.fechaFin ?? "",
+          beneficiarios: p.beneficiarios ?? 0,
+          estado: p.estado as ActividadVinculacion["estado"],
+        }))
+
+      setActividades(proyectos)
+    })
   }, [])
 
   const filtered = actividades.filter((a) =>
@@ -60,22 +114,103 @@ export default function VinculacionPage() {
 
   const handleSave = async () => {
     if (!form.nombre || !form.fechaInicio || !form.fechaFin) {
-      toast.error("Complete los campos obligatorios"); return
+      toast.error("Complete los campos obligatorios")
+      return
     }
+
     if (editing) {
-      const updated = await ActividadVinculacionService.update(editing.id, form)
-      if (updated) { setActividades((prev) => prev.map((a) => a.id === editing.id ? updated : a)); toast.success("Actividad actualizada") }
+      const updatedDb = await updateProyectoVinculacion(editing.id, {
+        nombre: form.nombre,
+        empresaId: form.empresaId,
+        beneficiarios: form.beneficiarios,
+        carreraId: form.carreraId,
+        estado: form.estado,
+        fechaInicio: form.fechaInicio,
+        fechaFin: form.fechaFin,
+      })
+
+      const updated: ActividadVinculacion = {
+        id: updatedDb.id,
+        ...form,
+      }
+
+      setActividades((prev) =>
+        prev.map((a) =>
+          a.id === editing.id ? updated : a
+        )
+      )
+
+      toast.success("Actividad actualizada")
     } else {
-      const created = await ActividadVinculacionService.create(form)
-      setActividades((prev) => [created, ...prev]); toast.success("Actividad creada")
+      const createdDb = await createProyectoVinculacion({
+        nombre: form.nombre,
+        empresaId: form.empresaId,
+        beneficiarios: form.beneficiarios,
+        carreraId: form.carreraId,
+        estado: form.estado,
+        fechaInicio: form.fechaInicio,
+        fechaFin: form.fechaFin,
+      })
+
+      const created: ActividadVinculacion = {
+        id: createdDb.id,
+        ...form,
+      }
+
+      setActividades((prev) => [created, ...prev])
+
+      toast.success("Actividad creada")
     }
+
     setOpen(false)
   }
 
   const handleDelete = async (id: number) => {
-    await ActividadVinculacionService.delete(id)
-    setActividades((prev) => prev.filter((a) => a.id !== id))
+    await deleteProyectoVinculacion(id)
+
+    setActividades((prev) =>
+      prev.filter((a) => a.id !== id)
+    )
+
     toast.success("Actividad eliminada")
+  }
+
+  const handleCreateEmpresa = async () => {
+    if (!empresaForm.nombre.trim()) {
+      toast.error("Ingrese el nombre de la empresa")
+      return
+    }
+
+    const creada = await createEmpresaVinculacion({
+      nombre: empresaForm.nombre,
+      ruc: empresaForm.ruc,
+      sector: empresaForm.sector,
+      contacto: empresaForm.contacto,
+      telefono: empresaForm.telefono,
+    })
+
+    setEmpresas((prev) => [
+      ...prev,
+      {
+        id: creada.id,
+        nombre: creada.nombre,
+        ruc: creada.ruc ?? "",
+        sector: creada.sector ?? "",
+        contacto: creada.contacto ?? "",
+        telefono: creada.telefono ?? "",
+        convenios: 0,
+      },
+    ])
+
+    setEmpresaForm({
+      nombre: "",
+      ruc: "",
+      sector: "",
+      contacto: "",
+      telefono: "",
+    })
+
+    toast.success("Empresa creada")
   }
 
   const getLider = (id: number) => { const l = lideres.find((l) => l.id === id); return l ? `${l.nombres} ${l.apellidos}` : "—" }
@@ -268,10 +403,78 @@ export default function VinculacionPage() {
 
       {/* Modal empresas */}
       <Dialog open={empresasOpen} onOpenChange={setEmpresasOpen}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-4xl">
           <DialogHeader>
             <DialogTitle>Empresas aliadas</DialogTitle>
           </DialogHeader>
+
+          <div className="grid grid-cols-2 gap-3 mb-5">
+
+            <Input
+              placeholder="Nombre"
+              value={empresaForm.nombre}
+              onChange={(e) =>
+                setEmpresaForm({
+                  ...empresaForm,
+                  nombre: e.target.value,
+                })
+              }
+            />
+
+            <Input
+              placeholder="RUC"
+              value={empresaForm.ruc}
+              onChange={(e) =>
+                setEmpresaForm({
+                  ...empresaForm,
+                  ruc: e.target.value,
+                })
+              }
+            />
+
+            <Input
+              placeholder="Sector"
+              value={empresaForm.sector}
+              onChange={(e) =>
+                setEmpresaForm({
+                  ...empresaForm,
+                  sector: e.target.value,
+                })
+              }
+            />
+
+            <Input
+              placeholder="Contacto"
+              value={empresaForm.contacto}
+              onChange={(e) =>
+                setEmpresaForm({
+                  ...empresaForm,
+                  contacto: e.target.value,
+                })
+              }
+            />
+
+            <Input
+              placeholder="Teléfono"
+              value={empresaForm.telefono}
+              onChange={(e) =>
+                setEmpresaForm({
+                  ...empresaForm,
+                  telefono: e.target.value,
+                })
+              }
+            />
+
+            <Button
+              onClick={handleCreateEmpresa}
+              className="bg-[#3C6E71] hover:bg-[#2F5A5C]"
+            >
+              <Plus className="w-4 h-4 mr-2" />
+              Nueva Empresa
+            </Button>
+
+          </div>
+
           <Table>
             <TableHeader>
               <TableRow>
@@ -279,21 +482,37 @@ export default function VinculacionPage() {
                 <TableHead>RUC</TableHead>
                 <TableHead>Sector</TableHead>
                 <TableHead>Contacto</TableHead>
-                <TableHead>Convenios</TableHead>
+                <TableHead>Teléfono</TableHead>
               </TableRow>
             </TableHeader>
+
             <TableBody>
               {empresas.map((e) => (
                 <TableRow key={e.id}>
-                  <TableCell className="font-medium">{e.nombre}</TableCell>
-                  <TableCell className="text-sm text-[#6B7280]">{e.ruc}</TableCell>
-                  <TableCell className="text-sm text-[#6B7280]">{e.sector}</TableCell>
-                  <TableCell className="text-sm text-[#6B7280]">{e.contacto}</TableCell>
-                  <TableCell><span className="font-semibold text-[#3C6E71]">{e.convenios}</span></TableCell>
+                  <TableCell className="font-medium">
+                    {e.nombre}
+                  </TableCell>
+
+                  <TableCell>
+                    {e.ruc}
+                  </TableCell>
+
+                  <TableCell>
+                    {e.sector}
+                  </TableCell>
+
+                  <TableCell>
+                    {e.contacto}
+                  </TableCell>
+
+                  <TableCell>
+                    {e.telefono}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
+
         </DialogContent>
       </Dialog>
     </div>
